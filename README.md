@@ -4,7 +4,7 @@
 **Module:** HBS3001 — Communicating Disease  
 **Target Audience:** Sexually active young women aged 15–25  
 
-> 🔗 **Live Interactive Website:** [Click here to open the interactive magazine](https://your-username.github.io/chlamydia-editorial/) *(Replace with your GitHub Pages URL)*
+> 🔗 **Live Interactive Website:** [Click here to open the interactive magazine](https://nikashkandiar.github.io/Chlamydia-Pathophysiology/)
 
 ---
 
