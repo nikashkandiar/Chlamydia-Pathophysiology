@@ -1,0 +1,3193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHLAMYDIA. — Pathophysiology & Reproductive Health | Nikash Parasuraman (HBS3001)</title>
+
+  <!-- Strictly 2 Fonts: Fraunces (Editorial Serif) & Plus Jakarta Sans (Clean Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Plus+Jakarta+Sans:ital,wght@0,400..700;1,400..600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- React 18 & Babel Standalone CDNs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+
+  <style>
+    :root {
+      --bg-paper: #FAF7F2;
+      --bg-warm: #F2ECE4;
+      --bg-surface: #FFFFFF;
+      --ink-900: #23191E;
+      --ink-700: #4A3C42;
+      --accent-rose: #A34355;
+      --accent-sage: #3D6356;
+      --accent-coral: #D46A6A;
+      --accent-ochre: #B86B3D;
+      --grain-opacity: 0.028;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      position: relative;
+      background-color: var(--bg-paper);
+      color: var(--ink-900);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.8;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      overflow-x: hidden;
+    }
+
+    /* Subtle Archival Paper Texture */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='editorialGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23editorialGrain)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 180px 180px;
+      opacity: var(--grain-opacity);
+      mix-blend-mode: multiply;
+    }
+
+    .hero-crystal-stage {
+      position: relative;
+      overflow: hidden;
+      background-color: #FAF7F2;
+    }
+
+    .crystal-facet-backdrop {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      user-select: none;
+      z-index: 1;
+    }
+
+    .editorial-content-shell { position: relative; z-index: 10; }
+    .font-serif-display { font-family: 'Fraunces', Georgia, serif; letter-spacing: -0.02em; }
+    .tabular-nums { font-variant-numeric: tabular-nums; }
+    .inline-highlight { -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+    .editorial-frame {
+      border: 1px solid #23191E;
+      box-shadow: 3px 3px 0px #23191E;
+    }
+
+    /* Interactive Glossary Term Chip — Distinct from Static Highlights */
+    .glossary-term-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.1rem 0.5rem;
+      margin: 0.1rem 0.2rem;
+      font-size: 0.8125rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: #264238;
+      background-color: #EBF2EE;
+      border: 1px solid #3D6356;
+      box-shadow: 1.5px 1.5px 0px #264238;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.15s ease, color 0.15s ease;
+      cursor: pointer;
+      vertical-align: baseline;
+    }
+
+    .glossary-term-chip:hover {
+      background-color: #23191E;
+      color: #FFFFFF;
+      border-color: #23191E;
+      box-shadow: 2px 2px 0px #A34355;
+      transform: translate(-1px, -1px);
+    }
+
+    .glossary-term-chip:hover .glossary-chip-badge {
+      background-color: #A34355;
+      color: #FFFFFF;
+      border-left-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .glossary-chip-badge {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.05rem 0.32rem;
+      margin-left: 0.15rem;
+      background-color: #D5E5DC;
+      color: #1E352D;
+      border-left: 1px solid #8FB0A3;
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .magazine-pullquote {
+      border-top: 2px solid #23191E;
+      border-bottom: 2px solid #23191E;
+    }
+
+    *:focus-visible {
+      outline: 2.5px solid #A34355 !important;
+      outline-offset: 2px !important;
+    }
+
+    .drop-cap::first-letter {
+      font-family: 'Fraunces', Georgia, serif;
+      float: left;
+      font-size: 3.9rem;
+      line-height: 0.82;
+      padding-top: 6px;
+      padding-right: 14px;
+      padding-bottom: 4px;
+      color: #A34355;
+      font-weight: 700;
+    }
+
+    /* Warm Editorial Palette Overrides */
+    .bg-rose-800, .bg-rose-700 { background-color: #A34355 !important; }
+    .bg-rose-900, .bg-rose-950 { background-color: #6E2836 !important; }
+    .text-rose-700, .text-rose-800, .text-rose-900, .text-rose-950 { color: #8F3546 !important; }
+    .text-rose-400 { color: #E899A6 !important; }
+    .bg-rose-100, .bg-rose-100\/90, .bg-rose-50\/60, .bg-rose-50\/90, .bg-rose-50 { background-color: #F9EBEE !important; }
+    .border-rose-300, .border-rose-400 { border-color: #DFB3BC !important; }
+
+    /* Botanical Sage & Deep Fig */
+    .bg-purple-900, .bg-purple-950 { background-color: #2E4F44 !important; }
+    .text-purple-800, .text-purple-900, .text-purple-950 { color: #264238 !important; }
+    .bg-purple-100, .bg-purple-100\/90, .bg-purple-50\/70, .bg-purple-50\/90, .bg-purple-50 { background-color: #EBF2EE !important; }
+    .border-purple-200, .border-purple-300, .border-purple-400, .border-purple-700, .border-purple-800, .border-purple-900 { border-color: #8FB0A3 !important; }
+    .border-t-purple-900, .border-l-purple-800, .border-l-purple-900 { border-color: #3D6356 !important; }
+
+    /* Warm Apricot & Ochre */
+    .bg-amber-100, .bg-amber-100\/90, .bg-amber-50\/60 { background-color: #FBF1E6 !important; }
+    .text-amber-800, .text-amber-900, .text-amber-950 { color: #7C4726 !important; }
+    .text-amber-300, .text-amber-200 { color: #F3C69F !important; }
+    .border-amber-300, .border-amber-400 { border-color: #E2BE9E !important; }
+    .border-t-amber-600, .border-l-amber-600 { border-color: #C87A4B !important; }
+
+    /* Dark Mode Overrides */
+    html.dark-theme { --grain-opacity: 0.04; }
+    html.dark-theme body { background-color: #161114 !important; color: #F5EFEA !important; }
+    html.dark-theme body::before { mix-blend-mode: screen; }
+    html.dark-theme .hero-crystal-stage { background-color: #161114 !important; }
+    html.dark-theme .crystal-facet-backdrop { opacity: 0.14 !important; filter: invert(1) hue-rotate(160deg); }
+    html.dark-theme .drop-cap::first-letter { color: #E899A6 !important; }
+    html.dark-theme .editorial-frame { border-color: #4A3941 !important; box-shadow: 3px 3px 0px #2D2127 !important; }
+    html.dark-theme .magazine-pullquote { border-top-color: #57424C !important; border-bottom-color: #57424C !important; }
+    html.dark-theme .glossary-term-chip {
+      background-color: #1D302A !important;
+      color: #C2E5D8 !important;
+      border-color: #4D806E !important;
+      box-shadow: 1.5px 1.5px 0px #0E1915 !important;
+    }
+    html.dark-theme .glossary-term-chip:hover {
+      background-color: #A34355 !important;
+      color: #FFFFFF !important;
+      border-color: #E899A6 !important;
+    }
+    html.dark-theme .glossary-chip-badge {
+      background-color: #29423A !important;
+      color: #E2F2EC !important;
+      border-left-color: #4D806E !important;
+    }
+    html.dark-theme .bg-\[\#fcfbfa\], html.dark-theme .bg-\[\#FAF7F2\], html.dark-theme .bg-\[\#FDFBF7\] { background-color: #161114 !important; }
+    html.dark-theme .bg-\[\#fcfbfa\]\/95, html.dark-theme .bg-\[\#FAF7F2\]\/95 { background-color: rgba(22, 17, 20, 0.94) !important; }
+    html.dark-theme .bg-\[\#F6F2EC\], html.dark-theme .bg-\[\#F2ECE4\] { background-color: #21191E !important; }
+    html.dark-theme .bg-white { background-color: #261D22 !important; }
+    html.dark-theme .bg-\[\#161320\], html.dark-theme .bg-\[\#23191E\] { background-color: #302229 !important; border-color: #4D3842 !important; }
+    html.dark-theme .bg-\[\#FFFDF7\], html.dark-theme .bg-\[\#FFFBEB\] { background-color: #29201B !important; }
+    html.dark-theme .bg-\[\#FCFAFF\] { background-color: #1B2622 !important; }
+    html.dark-theme .text-stone-900, html.dark-theme .text-stone-800 { color: #F5EFEA !important; }
+    html.dark-theme .text-stone-700, html.dark-theme .text-stone-600, html.dark-theme .text-stone-500 { color: #C9B9C0 !important; }
+    html.dark-theme .text-rose-700, html.dark-theme .text-rose-800, html.dark-theme .text-rose-900, html.dark-theme .text-rose-950 { color: #F2B6C0 !important; }
+    html.dark-theme .text-purple-800, html.dark-theme .text-purple-900, html.dark-theme .text-purple-950 { color: #A8D5C5 !important; }
+    html.dark-theme .text-amber-800, html.dark-theme .text-amber-900, html.dark-theme .text-amber-950 { color: #F3C69F !important; }
+    html.dark-theme .border-stone-300, html.dark-theme .border-stone-200, html.dark-theme .border-stone-400, html.dark-theme .border-stone-800 { border-color: #3D2E35 !important; }
+    html.dark-theme .border-stone-900 { border-color: #57424C !important; }
+    html.dark-theme .divide-stone-200 > :not([hidden]) ~ :not([hidden]) { border-color: #382A31 !important; }
+    html.dark-theme .bg-stone-200, html.dark-theme .bg-stone-300 { background-color: #382A31 !important; }
+    html.dark-theme .bg-amber-100, html.dark-theme .bg-amber-100\/90, html.dark-theme .bg-amber-50\/60 { background-color: #33251B !important; border-color: #6E492D !important; color: #F3C69F !important; }
+    html.dark-theme .bg-rose-100, html.dark-theme .bg-rose-100\/90, html.dark-theme .bg-rose-50\/60, html.dark-theme .bg-rose-50\/90, html.dark-theme .bg-rose-50 { background-color: #3B1D26 !important; border-color: #7A3548 !important; color: #F7C8D0 !important; }
+    html.dark-theme .bg-purple-100, html.dark-theme .bg-purple-100\/90, html.dark-theme .bg-purple-50\/70, html.dark-theme .bg-purple-50\/90, html.dark-theme .bg-purple-50 { background-color: #1D302A !important; border-color: #3D6356 !important; color: #C2E5D8 !important; }
+    html.dark-theme .inline-highlight { background-color: #3B2029 !important; color: #FAD1D8 !important; border-bottom-color: #D46A6A !important; }
+
+    @media print {
+      header, .no-print, .crystal-facet-backdrop, body::before { display: none !important; }
+      body { background: #FFFFFF !important; }
+    }
+  </style>
+</head>
+<body class="selection:bg-rose-800 selection:text-white m-0 p-0 pb-20 lg:pb-0">
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-stone-900 focus:text-white focus:px-4 focus:py-2.5 focus:rounded-none focus:text-xs focus:font-bold focus:uppercase focus:tracking-wider"
+  >
+    Skip to main content
+  </a>
+
+  <div id="root">
+    <div style="padding: 48px 24px; max-width: 640px; margin: 0 auto; font-family: sans-serif; color: #23191E;">
+      <p style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #A34355;">
+        HBS3001 COMMUNICATING DISEASE
+      </p>
+      <h1 style="font-size: 28px; margin: 8px 0 12px;">Loading Article...</h1>
+    </div>
+  </div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef, useMemo, useCallback, memo } = React;
+
+    // ============================================================================
+    // 1. WATERTIGHT DELAUNAY-STYLE CRYSTALLINE HERO MESH
+    // Every polygon vertex shares exact coordinates with the stroke & node lattice
+    // ============================================================================
+    const CrystalFacetHeroBackdrop = memo(() => (
+      <div className="crystal-facet-backdrop" aria-hidden="true">
+        <svg viewBox="0 0 1440 520" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full block" preserveAspectRatio="xMidYMid slice">
+          {/* Row 1 Facets (Top Edge y=0 to Mid-Upper Nodes) */}
+          <polygon points="0,0 310,0 190,180 0,140" fill="#F5EFE6" />
+          <polygon points="310,0 640,0 480,175 190,180" fill="#FAF6F0" />
+          <polygon points="640,0 980,0 820,200 480,175" fill="#F2EAE0" fillOpacity="0.7" />
+          <polygon points="980,0 1440,0 1260,210 820,200" fill="#F8F4EC" />
+          <polygon points="1440,0 1440,320 1260,210" fill="#EFE7DC" fillOpacity="0.6" />
+
+          {/* Row 2 Facets (Mid-Upper to Mid-Lower Nodes) */}
+          <polygon points="0,140 190,180 110,370 0,340" fill="#F8F4ED" />
+          <polygon points="190,180 480,175 390,360 110,370" fill="#F2EAE0" fillOpacity="0.5" />
+          <polygon points="480,175 820,200 690,390 390,360" fill="#FBF9F5" />
+          <polygon points="820,200 1260,210 1120,400 690,390" fill="#F4EDE3" fillOpacity="0.6" />
+          <polygon points="1260,210 1440,320 1440,520 1120,400" fill="#FAF6F0" />
+
+          {/* Row 3 Facets (Mid-Lower Nodes to Bottom Edge y=520 — Fully Closed) */}
+          <polygon points="0,340 110,370 220,520 0,520" fill="#F3ECE2" fillOpacity="0.55" />
+          <polygon points="110,370 390,360 510,520 220,520" fill="#FAF6F0" />
+          <polygon points="390,360 690,390 830,520 510,520" fill="#F5EFE6" fillOpacity="0.65" />
+          <polygon points="690,390 1120,400 1180,520 830,520" fill="#FBF9F5" />
+          <polygon points="1120,400 1440,520 1180,520" fill="#EFE7DC" fillOpacity="0.55" />
+
+          {/* Secondary Internal Gem-Cut Diagonals (Dashed Refraction Lines) */}
+          <g stroke="#E8DFD3" strokeWidth="0.8" strokeDasharray="3 3" strokeLinecap="round">
+            <line x1="0" y1="0" x2="190" y2="180" />
+            <line x1="310" y1="0" x2="480" y2="175" />
+            <line x1="640" y1="0" x2="820" y2="200" />
+            <line x1="980" y1="0" x2="1260" y2="210" />
+            <line x1="190" y1="180" x2="390" y2="360" />
+            <line x1="480" y1="175" x2="690" y2="390" />
+            <line x1="820" y1="200" x2="1120" y2="400" />
+            <line x1="110" y1="370" x2="390" y2="360" />
+            <line x1="390" y1="360" x2="830" y2="520" />
+            <line x1="690" y1="390" x2="1180" y2="520" />
+          </g>
+
+          {/* Primary Continuous Facet Wireframe (Every Polygon Edge Connected) */}
+          <g stroke="#DFD3C3" strokeWidth="1" strokeLinejoin="round" strokeLinecap="round">
+            {/* Upper-to-Mid Vertical/Diagonal Connectors */}
+            <line x1="310" y1="0" x2="190" y2="180" />
+            <line x1="640" y1="0" x2="480" y2="175" />
+            <line x1="980" y1="0" x2="820" y2="200" />
+            <line x1="1440" y1="0" x2="1260" y2="210" />
+
+            {/* Upper-Mid Horizontal Ridge */}
+            <line x1="0" y1="140" x2="190" y2="180" />
+            <line x1="190" y1="180" x2="480" y2="175" />
+            <line x1="480" y1="175" x2="820" y2="200" />
+            <line x1="820" y1="200" x2="1260" y2="210" />
+            <line x1="1260" y1="210" x2="1440" y2="320" />
+
+            {/* Mid-to-Lower Vertical/Diagonal Connectors */}
+            <line x1="190" y1="180" x2="110" y2="370" />
+            <line x1="480" y1="175" x2="390" y2="360" />
+            <line x1="820" y1="200" x2="690" y2="390" />
+            <line x1="1260" y1="210" x2="1120" y2="400" />
+
+            {/* Lower-Mid Horizontal Ridge (Previously Missing!) */}
+            <line x1="0" y1="340" x2="110" y2="370" />
+            <line x1="110" y1="370" x2="390" y2="360" />
+            <line x1="390" y1="360" x2="690" y2="390" />
+            <line x1="690" y1="390" x2="1120" y2="400" />
+            <line x1="1120" y1="400" x2="1440" y2="520" />
+
+            {/* Lower-to-Bottom-Edge Connectors (Anchors Mesh to Bottom Border) */}
+            <line x1="110" y1="370" x2="220" y2="520" />
+            <line x1="390" y1="360" x2="510" y2="520" />
+            <line x1="690" y1="390" x2="830" y2="520" />
+            <line x1="1120" y1="400" x2="1180" y2="520" />
+          </g>
+
+          {/* Precision Vertex Anchor Nodes at Every Intersection */}
+          <g fill="#D5C7B4" stroke="#FAF7F2" strokeWidth="1">
+            <circle cx="190" cy="180" r="2.5" />
+            <circle cx="480" cy="175" r="2.5" />
+            <circle cx="820" cy="200" r="2.5" />
+            <circle cx="1260" cy="210" r="2.5" />
+            <circle cx="110" cy="370" r="2.5" />
+            <circle cx="390" cy="360" r="2.5" />
+            <circle cx="690" cy="390" r="2.5" />
+            <circle cx="1120" cy="400" r="2.5" />
+          </g>
+        </svg>
+      </div>
+    ));
+
+    // ============================================================================
+    // 2. MATHEMATICAL & GEOMETRIC VECTOR HELPERS (Pause-Safe RAF Clock)
+    // ============================================================================
+    const smoothstep = (min, max, value) => {
+      const x = Math.max(0, Math.min(1, (value - min) / (max - min)));
+      return x * x * (3 - 2 * x);
+    };
+
+    function useAnimationClock(isPaused = false) {
+      const [time, setTime] = useState(0);
+      const elapsedRef = useRef(0);
+
+      useEffect(() => {
+        if (isPaused) return;
+        let rafId;
+        const start = performance.now() - elapsedRef.current * 1000;
+
+        const tick = (now) => {
+          const next = (now - start) / 1000;
+          elapsedRef.current = next;
+          setTime(next);
+          rafId = requestAnimationFrame(tick);
+        };
+
+        rafId = requestAnimationFrame(tick);
+        return () => cancelAnimationFrame(rafId);
+      }, [isPaused]);
+
+      return time;
+    }
+
+    function buildVerticalMetaballCellPath(cx, cy, r, topIndent = 0, bottomBulge = 0, pinchNarrow = 0) {
+      const pts = 24;
+      const coords = [];
+
+      for (let i = 0; i !== pts; i++) {
+        const angle = (i * 2 * Math.PI) / pts;
+        const dTop = Math.atan2(Math.sin(angle + Math.PI / 2), Math.cos(angle + Math.PI / 2));
+        const topDeform = -topIndent * Math.exp(-(dTop * dTop) / 0.11);
+        const topLip = topIndent * 0.22 * Math.exp(-((Math.abs(dTop) - 0.48) ** 2) / 0.05);
+
+        const dBot = Math.atan2(Math.sin(angle - Math.PI / 2), Math.cos(angle - Math.PI / 2));
+        const botDeform = bottomBulge * Math.exp(-(dBot * dBot) / 0.13);
+        const botNeck = -pinchNarrow * Math.exp(-((Math.abs(dBot) - 0.36) ** 2) / 0.04);
+
+        const rad = r + topDeform + topLip + botDeform + botNeck;
+        coords.push({ x: cx + Math.cos(angle) * rad, y: cy + Math.sin(angle) * rad });
+      }
+
+      let d = `M ${coords[0].x.toFixed(2)} ${coords[0].y.toFixed(2)} `;
+      for (let i = 0; i !== pts; i++) {
+        const p0 = coords[(i - 1 + pts) % pts];
+        const p1 = coords[i];
+        const p2 = coords[(i + 1) % pts];
+        const p3 = coords[(i + 2) % pts];
+
+        const cp1x = p1.x + (p2.x - p0.x) / 6;
+        const cp1y = p1.y + (p2.y - p0.y) / 6;
+        const cp2x = p2.x - (p3.x - p1.x) / 6;
+        const cp2y = p2.y - (p3.y - p1.y) / 6;
+
+        d += `C ${cp1x.toFixed(2)} ${cp1y.toFixed(2)}, ${cp2x.toFixed(2)} ${cp2y.toFixed(2)}, ${p2.x.toFixed(2)} ${p2.y.toFixed(2)} `;
+      }
+      return d + "Z";
+    }
+
+    function buildHourglassNeckPath(cx, yTop, yBot, topHalfWidth, botHalfWidth, waistFactor) {
+      const yMid = (yTop + yBot) * 0.5;
+      const waist = Math.max(1.5, Math.min(topHalfWidth, botHalfWidth) * waistFactor);
+      return [
+        `M ${(cx - topHalfWidth).toFixed(2)} ${yTop.toFixed(2)}`,
+        `C ${(cx - topHalfWidth).toFixed(2)} ${yMid.toFixed(2)}, ${(cx - waist).toFixed(2)} ${yMid.toFixed(2)}, ${(cx - botHalfWidth).toFixed(2)} ${yBot.toFixed(2)}`,
+        `L ${(cx + botHalfWidth).toFixed(2)} ${yBot.toFixed(2)}`,
+        `C ${(cx + waist).toFixed(2)} ${yMid.toFixed(2)}, ${(cx + topHalfWidth).toFixed(2)} ${yMid.toFixed(2)}, ${(cx + topHalfWidth).toFixed(2)} ${yTop.toFixed(2)}`,
+        "Z"
+      ].join(" ");
+    }
+
+    function buildMorphingTissueCellPath(cx, cy, baseR, swellProgress, scarProgress, seed = 0) {
+      const vertices = 6;
+      const radius = baseR * (1 + 0.24 * swellProgress - 0.18 * scarProgress);
+      const handleTension = 1 - scarProgress;
+
+      const pts = [];
+      for (let i = 0; i !== vertices; i++) {
+        const angle = (i * 2 * Math.PI) / vertices + seed * 0.35;
+        const swellLobe = swellProgress * 3.5 * Math.sin(angle * 2 + seed);
+        const scarFacet = scarProgress * (i % 2 === 0 ? 4.5 : -3.5);
+        const r = radius + swellLobe + scarFacet;
+        pts.push({ x: cx + Math.cos(angle) * r, y: cy + Math.sin(angle) * r });
+      }
+
+      let d = `M ${pts[0].x.toFixed(2)} ${pts[0].y.toFixed(2)} `;
+      for (let i = 0; i !== vertices; i++) {
+        const p0 = pts[(i - 1 + vertices) % vertices];
+        const p1 = pts[i];
+        const p2 = pts[(i + 1) % vertices];
+        const p3 = pts[(i + 2) % vertices];
+
+        const cp1x = p1.x + ((p2.x - p0.x) / 6) * handleTension;
+        const cp1y = p1.y + ((p2.y - p0.y) / 6) * handleTension;
+        const cp2x = p2.x - ((p3.x - p1.x) / 6) * handleTension;
+        const cp2y = p2.y - ((p3.y - p1.y) / 6) * handleTension;
+
+        d += `C ${cp1x.toFixed(2)} ${cp1y.toFixed(2)}, ${cp2x.toFixed(2)} ${cp2y.toFixed(2)}, ${p2.x.toFixed(2)} ${p2.y.toFixed(2)} `;
+      }
+      return d + "Z";
+    }
+
+    function buildWarpedGridLine(isVertical, fixedCoord, maxSpan, attractors, scarTension) {
+      const steps = 16;
+      let d = "";
+      for (let i = 0; i !== steps + 1; i++) {
+        const t = (i / steps) * maxSpan;
+        let x = isVertical ? fixedCoord : t;
+        let y = isVertical ? t : fixedCoord;
+
+        if (scarTension > 0.01) {
+          let dxTotal = 0;
+          let dyTotal = 0;
+          for (let a = 0; a !== attractors.length; a++) {
+            const att = attractors[a];
+            const dx = att.x - x;
+            const dy = att.y - y;
+            const distSq = dx * dx + dy * dy;
+            const pull = scarTension * 0.34 * Math.exp(-distSq / 5200);
+            dxTotal += dx * pull;
+            dyTotal += dy * pull;
+          }
+          x += dxTotal;
+          y += dyTotal;
+        }
+        d += (i === 0 ? "M " : "L ") + `${x.toFixed(2)} ${y.toFixed(2)} `;
+      }
+      return d;
+    }
+
+    // ============================================================================
+    // STATIC HOISTED CONSTANTS & NATURAL PROSE DATA
+    // ============================================================================
+    const CHAPTERS = [
+      { id: 'ch1', num: '01', shortTitle: 'Ages 15–25', title: 'Why Ages 15–25?' },
+      { id: 'ch2', num: '02', shortTitle: 'Baseline', title: 'Healthy Baseline' },
+      { id: 'ch3', num: '03', shortTitle: 'Cell Cycle', title: 'Cellular Takeover' },
+      { id: 'ch4', num: '04', shortTitle: 'Pathology', title: 'Tissue Scarring' },
+      { id: 'ch5', num: '05', shortTitle: 'Quiz', title: 'Review Quiz' },
+    ];
+
+    const IDX_2 = [0, 1];
+    const IDX_3 = [0, 1, 2];
+    const IDX_7 = [0, 1, 2, 3, 4, 5, 6];
+    const IDX_8 = [0, 1, 2, 3, 4, 5, 6, 7];
+
+    const TISSUE_NODES = [
+      { id: 0, baseX: 112, baseY: 45, r: 26, seed: 1, core: true },
+      { id: 1, baseX: 248, baseY: 45, r: 26, seed: 2, core: false },
+      { id: 2, baseX: 180, baseY: 132, r: 30, seed: 3, core: true },
+      { id: 3, baseX: 88, baseY: 168, r: 25, seed: 4, core: false },
+      { id: 4, baseX: 272, baseY: 168, r: 25, seed: 5, core: true },
+      { id: 5, baseX: 180, baseY: 242, r: 27, seed: 6, core: true }
+    ];
+
+    const ANATOMY_HOTSPOTS = [
+      {
+        id: 'ectocervix',
+        num: '01',
+        title: 'Outer Cervix (The 15–25 Ectopy Zone)',
+        tag: 'Entry Point',
+        plain: 'In your teens and early twenties, delicate single-layer cells from the inner canal naturally sit out on the surface of the cervix. That gives Chlamydia an easy place to attach during sex.',
+        science: 'Physiological cervical ectopy exposes single-layer simple columnar epithelium on the ectocervix, presenting abundant HSPG and PDI surface receptors directly to Elementary Bodies.'
+      },
+      {
+        id: 'endocervix',
+        num: '02',
+        title: 'Inner Cervical Canal & Uterus',
+        tag: 'Upward Spread',
+        plain: 'Once inside those cervical cells, the bacteria multiply inside hidden pockets and move upward from cell to cell without setting off early pain alarms.',
+        science: 'Non-lytic extrusion and CPAF-mediated apoptosis inhibition allow Chlamydia trachomatis to ascend along the endocervical and endometrial epithelium while evading acute nociceptor activation.'
+      },
+      {
+        id: 'oviduct',
+        num: '03',
+        title: 'Fallopian Tubes (Where Scarring Happens)',
+        tag: 'Fertility Risk',
+        plain: 'When the infection reaches the fallopian tubes, a months-long immune battle destroys the tiny hair cells that sweep the egg and leaves permanent scar tissue behind.',
+        science: 'Persistent macrophage and neutrophil infiltration releases TNF-α (sloughing ciliated and peg cells) and TGF-β (stimulating fibroblasts to deposit rigid collagen scar tissue, causing tubal occlusion).'
+      }
+    ];
+
+    const TIMELINE_STEPS = [
+      {
+        id: 't1',
+        time: 'Days 1–3',
+        stage: 'Attachment & Entry',
+        feeling: 'Feels 100% Normal (No Symptoms)',
+        cellular: 'Infectious Elementary Bodies latch onto exposed single-layer columnar cells on the cervix and slip inside a membrane pocket.'
+      },
+      {
+        id: 't2',
+        time: 'Weeks 1–3',
+        stage: 'Cloning & Quiet Spread',
+        feeling: '70–80% Feel Nothing · 20% Mild Discharge or Pee Burn',
+        cellular: 'Inside the pocket, Reticulate Bodies use your cell’s energy to multiply. Cells either pinch off quiet bubbles (keeping things silent) or burst open (drawing white blood cells to the area).'
+      },
+      {
+        id: 't3',
+        time: 'Months 1–4',
+        stage: 'Upper-Tract Inflammation',
+        feeling: 'Often Still Silent · Occasional Spotting or Low Pelvic Ache',
+        cellular: 'Untreated bacteria climb into the fallopian tubes. Ongoing immune signals (TNF-α) paralyze and strip away the hair-like cilia that move the egg.'
+      },
+      {
+        id: 't4',
+        time: 'Months 6+',
+        stage: 'Tubal Scarring (Fibrosis)',
+        feeling: 'Often Found Later via PID, Ectopic Pregnancy, or Infertility',
+        cellular: 'Chronic repair signals (TGF-β) push fibroblast cells into overdrive, replacing flexible fallopian tube tissue with stiff collagen scar tissue that blocks sperm or traps a fertilized egg.'
+      }
+    ];
+
+    const GLOSSARY_TERMS = [
+      {
+        term: "Obligate Intracellular Bacterium",
+        subtitle: "Needs Your Cell's Energy to Survive",
+        phonetic: "ob-li-gate in-tra-cel-lu-lar",
+        category: "Pathogen Biology",
+        badgeColor: "bg-purple-100 text-purple-950 border-purple-300",
+        simplified: "A bacterium that cannot make its own energy. To survive and copy itself, it has to break into a living human cell and borrow that cell's battery power.",
+        science: "A pathogen incapable of extracellular replication because it lacks metabolic pathways to synthesize ATP and essential metabolic intermediates, relying on host ATP/ADP translocases."
+      },
+      {
+        term: "Cervical Ectopy (Immaturity)",
+        subtitle: "Why Ages 15–25 Are More Vulnerable",
+        phonetic: "ser-vi-kal ek-to-pee",
+        category: "Reproductive Anatomy",
+        badgeColor: "bg-rose-100 text-rose-950 border-rose-300",
+        simplified: "In young women aged 15–25, the cervix is still finishing its growth. Delicate, single-layer inner cells naturally sit out on the surface of the cervix, giving Chlamydia an easy landing pad.",
+        science: "A normal physiological state in adolescents and young adults where single-layer simple columnar epithelium of the endocervix extends onto the ectocervix, exposing prime receptor targets to Chlamydia trachomatis."
+      },
+      {
+        term: "Elementary Body (EB)",
+        subtitle: "Form 1: The Infectious 'Travel Pod'",
+        phonetic: "el-uh-men-tuh-ree bod-ee",
+        category: "Pathogen Biology",
+        badgeColor: "bg-purple-100 text-purple-950 border-purple-300",
+        simplified: "The tough outer form of Chlamydia. It stays dormant outside the cell and is built to survive sex and unlock a new host cell.",
+        science: "The small (~0.3 µm), metabolically inactive, extracellular infectious form of Chlamydia trachomatis stabilized by disulfide-crosslinked outer membrane proteins."
+      },
+      {
+        term: "Reticulate Body (RB)",
+        subtitle: "Form 2: The Multiplying 'Factory'",
+        phonetic: "ri-tik-yuh-lit bod-ee",
+        category: "Pathogen Biology",
+        badgeColor: "bg-rose-100 text-rose-950 border-rose-300",
+        simplified: "Once safely inside your cell, Chlamydia unzips its outer shell and switches into this active 'factory mode', using your cell's energy to copy itself hundreds of times.",
+        science: "The larger (~1.0 µm), non-infectious, metabolically active intracellular form that replicates rapidly by binary fission inside the inclusion vacuole."
+      },
+      {
+        term: "Inclusion Vacuole",
+        subtitle: "The Hidden Safe-Room Bubble",
+        phonetic: "in-kloo-zhun vak-yoo-ohl",
+        category: "Cellular Mechanism",
+        badgeColor: "bg-purple-100 text-purple-950 border-purple-300",
+        simplified: "A disguised membrane bubble that Chlamydia builds around itself inside your cell so your cell's waste-disposal enzymes cannot digest it.",
+        science: "A specialized, membrane-bound intracellular compartment modified by bacterial Inc proteins to evade phagolysosomal fusion while intercepting host lipid vesicles and ATP."
+      },
+      {
+        term: "Ciliated & Peg Cells",
+        subtitle: "Egg-Sweeping & Nourishing Tube Cells",
+        phonetic: "sil-ee-ay-tid & peg selz",
+        category: "Reproductive Anatomy",
+        badgeColor: "bg-amber-100 text-amber-950 border-amber-300",
+        simplified: "The two cell types lining your fallopian tubes: ciliated cells have tiny hair-like bristles that wave in sync to sweep the egg toward the uterus, while peg cells make nourishing fluid to feed the egg.",
+        science: "Ciliated columnar epithelial cells beat synchronously to propel the ovum toward the uterus, while non-ciliated secretory 'peg' cells produce nutrient-rich tubular fluid."
+      },
+      {
+        term: "Extrusion vs. Lysis",
+        subtitle: "Quiet Bubble Exit vs. Cell Burst",
+        phonetic: "eks-troo-zhun / ly-sis",
+        category: "Cellular Mechanism",
+        badgeColor: "bg-amber-100 text-amber-950 border-amber-300",
+        simplified: "Chlamydia's two ways out of a cell: pinching off inside a quiet membrane bubble without breaking your cell (Extrusion, which keeps the infection silent) or popping your cell open (Lysis, which triggers inflammation).",
+        science: "Two equally prevalent exit mechanisms: Extrusion pinches off membrane-wrapped bacteria leaving the host cell intact (delaying immune recognition), whereas Lysis enzymatically degrades host membranes."
+      },
+      {
+        term: "DAMPs & TLRs",
+        subtitle: "Cellular Distress Signals & Immune Alarms",
+        phonetic: "damps & tee-el-arz",
+        category: "Immunopathology",
+        badgeColor: "bg-rose-100 text-rose-950 border-rose-300",
+        simplified: "When an infected cell is stressed or bursts open, it spills internal distress signals (DAMPs) that trip alarm sensors (TLRs) on nearby cells, calling white blood cells to the area.",
+        science: "Damage-Associated Molecular Patterns released by stressed or lysed host cells bind Toll-Like Receptors (TLRs) on immune and epithelial cells, initiating acute pro-inflammatory cytokine cascades."
+      },
+      {
+        term: "TGF-β & Fibrosis",
+        subtitle: "Over-Healing & Permanent Scar Tissue",
+        phonetic: "tee-jee-ef bay-tuh / fy-bro-sis",
+        category: "Clinical Complications",
+        badgeColor: "bg-rose-100 text-rose-950 border-rose-300",
+        simplified: "When inflammation drags on for months, tissue-repair signals (TGF-β) go into overdrive and replace flexible tube cells with stiff, permanent collagen scar tissue (fibrosis).",
+        science: "Transforming Growth Factor-beta (TGF-β) released during chronic inflammation hyper-activates fibroblasts to deposit excessive extracellular matrix (ECM) and collagen, scarring and contracting the oviduct."
+      }
+    ].map(item => ({
+      ...item,
+      _searchIndex: `${item.term} ${item.subtitle} ${item.category} ${item.simplified} ${item.science}`.toLowerCase()
+    }));
+
+    const QUIZ_QUESTIONS = [
+      {
+        id: 'q1',
+        num: '01',
+        question: "In a healthy fallopian tube, how do epithelial cells move an egg safely toward the uterus?",
+        options: [
+          { id: 'a', text: "Ciliated cells beat in coordinated waves to sweep the egg forward, while secretory peg cells produce nourishing fluid." },
+          { id: 'b', text: "Fibroblasts lay down collagen scar tissue to push the egg along the tube." },
+          { id: 'c', text: "Outer squamous cells shed their layers to carry the egg." }
+        ],
+        correct: 'a',
+        explanation: "Correct. Healthy ciliated columnar cells beat in synchronized waves to sweep the egg toward the uterus, while secretory peg cells nourish it with fluid."
+      },
+      {
+        id: 'q2',
+        num: '02',
+        question: "Why does Chlamydia trachomatis have to break into a living human cell to multiply?",
+        options: [
+          { id: 'a', text: "It is an obligate intracellular bacterium that cannot make its own energy (ATP), entering as an Elementary Body (EB) and multiplying as a Reticulate Body (RB)." },
+          { id: 'b', text: "It only infects circulating red blood cells." },
+          { id: 'c', text: "It multiplies freely on skin surfaces without needing host cells." }
+        ],
+        correct: 'a',
+        explanation: "Spot on. Because Chlamydia cannot make its own ATP energy, it enters the host cell as an Elementary Body (EB) and switches into a replicating Reticulate Body (RB) inside an inclusion bubble."
+      },
+      {
+        id: 'q3',
+        num: '03',
+        question: "Why do 70% to 80% of young women with Chlamydia feel no early symptoms?",
+        options: [
+          { id: 'a', text: "The bacteria hide inside an internal bubble, block early cell death, and can pinch out in quiet membrane packages (extrusion) without bursting the host cell." },
+          { id: 'b', text: "The bacteria release a numbing chemical that turns off pelvic nerves." },
+          { id: 'c', text: "The immune system clears the bacteria within 24 hours." }
+        ],
+        correct: 'a',
+        explanation: "Exactly. By multiplying inside a disguised inclusion vacuole, blocking host cell death (apoptosis), and exiting via extrusion, Chlamydia avoids setting off immediate pain signals."
+      },
+      {
+        id: 'q4',
+        num: '04',
+        question: "How does a long-term, untreated Chlamydia infection end up blocking a fallopian tube?",
+        options: [
+          { id: 'a', text: "Months of immune cell buildup and swelling trigger repair signals (TGF-β) that replace flexible tube cells with stiff collagen scar tissue (fibrosis)." },
+          { id: 'b', text: "The bacteria permanently stop the ovaries from releasing eggs." },
+          { id: 'c', text: "The infection thins cervical mucus without affecting the upper tract." }
+        ],
+        correct: 'a',
+        explanation: "Correct. Chronic inflammatory signals (TNF-α, IL-1, and TGF-β) strip away delicate ciliated cells and push fibroblasts to lay down stiff collagen scar tissue (fibrosis), narrowing or blocking the tube."
+      }
+    ];
+
+    // ============================================================================
+    // RESTRAINED FUNCTIONAL UI ICONS
+    // ============================================================================
+    const IconFlip = memo(({ size = 13, className = "" }) => (
+      <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false" className={className}>
+        <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+        <path d="M21 3v5h-5" />
+        <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+        <path d="M8 16H3v5" />
+      </svg>
+    ));
+
+    const IconClose = memo(({ size = 16, className = "" }) => (
+      <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false" className={className}>
+        <path d="M18 6 6 18" /><path d="m6 6 12 12" />
+      </svg>
+    ));
+
+    const IconSearch = memo(({ size = 15, className = "" }) => (
+      <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false" className={className}>
+        <circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" />
+      </svg>
+    ));
+
+    const IconBook = memo(({ size = 12, className = "" }) => (
+      <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false" className={className}>
+        <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+      </svg>
+    ));
+
+    // ============================================================================
+    // MAGAZINE PULL-QUOTE COMPONENT
+    // ============================================================================
+    const MagazinePullQuote = memo(({ quote, attribution }) => (
+      <blockquote className="magazine-pullquote my-10 py-7 px-6 bg-[#F2ECE4]/50 text-center">
+        <p className="font-serif-display italic text-xl sm:text-2xl font-semibold text-stone-900 leading-snug max-w-2xl mx-auto">
+          “{quote}”
+        </p>
+        {attribution && (
+          <footer className="mt-3 text-[11px] font-bold uppercase tracking-[0.18em] text-rose-800">
+            — {attribution}
+          </footer>
+        )}
+      </blockquote>
+    ));
+
+    // ============================================================================
+    // COMPONENT 1: 2D VERTICAL-SCROLL CELLULAR TAKEOVER PLATE
+    // ============================================================================
+    const FluidCellularAnimation = memo(() => {
+      const [isPaused, setIsPaused] = useState(false);
+      const [lockedPhase, setLockedPhase] = useState(null);
+      const rawTime = useAnimationClock(isPaused);
+
+      const cycle = lockedPhase !== null ? (lockedPhase * 0.25 + 0.12) : (rawTime % 12) / 12;
+      const activePhase = Math.min(3, Math.floor(cycle * 4));
+      const gridScrollY = (rawTime * 18) % 40;
+
+      const topIndent = 26 * smoothstep(0.06, 0.18, cycle) * (1 - smoothstep(0.20, 0.29, cycle));
+      const bottomBulge = 22 * smoothstep(0.68, 0.80, cycle) * (1 - smoothstep(0.84, 0.94, cycle));
+      const pinchNarrow = 14 * smoothstep(0.74, 0.85, cycle) * (1 - smoothstep(0.86, 0.95, cycle));
+
+      const hostMembranePath = buildVerticalMetaballCellPath(200, 140, 82, topIndent, bottomBulge, pinchNarrow);
+
+      const ebEntryProgress = smoothstep(0.0, 0.24, cycle);
+      const ebY = -14 + ebEntryProgress * 108;
+      const ebEntryVisible = 0.25 >= cycle;
+
+      const showTopNeck = cycle >= 0.16 && 0.26 >= cycle;
+      const topNeckWaist = 1 - smoothstep(0.16, 0.26, cycle);
+
+      const pocketVisible = cycle >= 0.18 && 0.78 >= cycle;
+      const pocketDownDrift = smoothstep(0.22, 0.76, cycle);
+      const pocketY = 94 + pocketDownDrift * 78;
+      const pocketExpand = smoothstep(0.22, 0.44, cycle);
+      const pocketCompact = smoothstep(0.66, 0.78, cycle);
+      const pocketR = 14 + 28 * pocketExpand - 12 * pocketCompact;
+
+      const splitHorizontal = smoothstep(0.26, 0.38, cycle);
+      const splitVertical = smoothstep(0.38, 0.50, cycle);
+      const isCondensing = cycle >= 0.56;
+      const condenseFactor = smoothstep(0.56, 0.68, cycle);
+
+      const extActive = cycle >= 0.74;
+      const extProgress = smoothstep(0.74, 0.99, cycle);
+      const extY = 172 + extProgress * 142;
+      const extR = 26;
+      const showBottomNeck = cycle >= 0.74 && 0.87 >= cycle;
+      const botNeckWaist = 1 - smoothstep(0.74, 0.87, cycle);
+
+      return (
+        <figure className="bg-white editorial-frame overflow-hidden my-8">
+          <div className="px-5 py-3 bg-[#23191E] text-white border-b border-stone-800 flex flex-wrap items-center justify-between gap-2">
+            <div className="flex items-center gap-2.5">
+              <span className="w-2 h-2 bg-[#D46A6A]" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-stone-100">
+                OVERVIEW ANIMATION // THE 4-PHASE INTRACELLULAR CYCLE
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              {lockedPhase !== null && (
+                <button
+                  type="button"
+                  onClick={() => setLockedPhase(null)}
+                  className="text-[10px] font-bold uppercase tracking-widest bg-rose-800 text-white border border-rose-600 px-2.5 py-1 cursor-pointer"
+                >
+                  Auto Loop
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={() => setIsPaused(p => !p)}
+                aria-pressed={isPaused}
+                className="text-[10px] font-bold uppercase tracking-widest bg-stone-800 hover:bg-stone-700 text-stone-100 border border-stone-600 px-2.5 py-1 transition-colors cursor-pointer"
+              >
+                {isPaused ? 'Resume' : 'Pause'}
+              </button>
+            </div>
+          </div>
+
+          <div className="p-4 sm:p-6 bg-[#FAF7F2]">
+            <svg
+              role="img"
+              aria-label="Animated cellular sequence showing an elementary body descending into a host cell, forming an internal pocket, dividing into four reticulate blocks, condensing, and extruding downward."
+              viewBox="0 0 400 250"
+              className="w-full max-w-xl mx-auto h-auto border border-stone-300 bg-[#FFFDF9] block"
+              shapeRendering="geometricPrecision"
+            >
+              <g stroke="#EFEAE2" strokeWidth="1.5">
+                {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
+                  <line key={`vx-${i}`} x1={i * 40} y1="0" x2={i * 40} y2="250" />
+                ))}
+                {[-1, 0, 1, 2, 3, 4, 5, 6].map((i) => {
+                  const yPos = i * 40 + gridScrollY;
+                  return <line key={`hy-${i}`} x1="0" y1={yPos} x2="400" y2={yPos} />;
+                })}
+              </g>
+
+              <line x1="200" y1="0" x2="200" y2="250" stroke="#EAE3D9" strokeWidth="1.5" strokeDasharray="4 4" />
+
+              <g transform="translate(0, -14)">
+                <path d={hostMembranePath} fill="#F9EBEE" stroke="#38242E" strokeWidth="1.5" strokeLinejoin="round" />
+                <path d={buildVerticalMetaballCellPath(200, 140, 76, topIndent * 0.9, bottomBulge * 0.9, pinchNarrow * 0.9)} fill="none" stroke="#C86D7A" strokeWidth="1.5" />
+
+                <g transform="translate(254, 118) rotate(18)">
+                  <ellipse cx="0" cy="0" rx="18" ry="26" fill="#4A2E3B" stroke="#38242E" strokeWidth="1.5" />
+                  <ellipse cx="-4" cy="-6" rx="5" ry="8" fill="#F2E2E6" stroke="#38242E" strokeWidth="1.5" />
+                </g>
+
+                {showTopNeck && (
+                  <path d={buildHourglassNeckPath(200, 58 + topIndent * 0.4, pocketY - pocketR + 2, 12, 10, topNeckWaist)} fill="#FFFDF9" stroke="#38242E" strokeWidth="1.5" />
+                )}
+
+                {pocketVisible && (
+                  <g>
+                    <circle cx="200" cy={pocketY} r={pocketR} fill="#EBF2EE" stroke="#3D6356" strokeWidth="1.5" />
+                    {pocketR > 20 && (
+                      <circle cx="200" cy={pocketY} r={pocketR - 5} fill="none" stroke="#3D6356" strokeWidth="1.5" strokeDasharray="4 3" />
+                    )}
+
+                    {[
+                      { sx: -1, sy: -1 },
+                      { sx: 1, sy: -1 },
+                      { sx: -1, sy: 1 },
+                      { sx: 1, sy: 1 }
+                    ].map((quad, idx) => {
+                      const offsetX = quad.sx * 11 * splitHorizontal * (1 - 0.15 * condenseFactor);
+                      const offsetY = quad.sy * 11 * splitVertical * (1 - 0.15 * condenseFactor);
+                      const blockSize = 14 - 3 * condenseFactor;
+                      const cornerRadius = isCondensing ? (3 + 4 * condenseFactor) : 2;
+                      const fillHex = isCondensing && condenseFactor > 0.5 ? "#38242E" : "#C85A68";
+
+                      return (
+                        <rect
+                          key={idx}
+                          x={200 + offsetX - blockSize / 2}
+                          y={pocketY + offsetY - blockSize / 2}
+                          width={blockSize}
+                          height={blockSize}
+                          rx={cornerRadius}
+                          fill={fillHex}
+                          stroke="#38242E"
+                          strokeWidth="1.5"
+                        />
+                      );
+                    })}
+                  </g>
+                )}
+
+                {ebEntryVisible && (
+                  <g transform={`translate(200, ${ebY})`}>
+                    <circle cx="0" cy="0" r="9.5" fill="#38242E" stroke="#38242E" strokeWidth="1.5" />
+                    <circle cx="0" cy="0" r="3.5" fill="#F3C69F" stroke="#38242E" strokeWidth="1.5" />
+                  </g>
+                )}
+
+                {showBottomNeck && (
+                  <path d={buildHourglassNeckPath(200, 218, extY - extR + 3, 16, 14, botNeckWaist)} fill="#F9EBEE" stroke="#38242E" strokeWidth="1.5" />
+                )}
+
+                {extActive && (
+                  <g transform={`translate(200, ${extY})`}>
+                    <circle cx="0" cy="0" r={extR} fill="#F9EBEE" stroke="#38242E" strokeWidth="1.5" />
+                    <circle cx="0" cy="0" r={extR - 4.5} fill="#EBF2EE" stroke="#3D6356" strokeWidth="1.5" />
+                    <circle cx="-7.5" cy="-7.5" r="5" fill="#38242E" stroke="#38242E" strokeWidth="1.5" />
+                    <circle cx="7.5" cy="-7.5" r="5" fill="#38242E" stroke="#38242E" strokeWidth="1.5" />
+                    <circle cx="-7.5" cy="7.5" r="5" fill="#38242E" stroke="#38242E" strokeWidth="1.5" />
+                    <rect x="3" y="3" width="9" height="9" rx="1.5" fill="#C85A68" stroke="#38242E" strokeWidth="1.5" />
+                  </g>
+                )}
+              </g>
+            </svg>
+
+            <div className="max-w-xl mx-auto mt-4 grid grid-cols-4 bg-stone-300 gap-px border border-stone-300" role="group" aria-label="Inspect animation phase">
+              {[
+                { idx: 0, label: '01 Entry' },
+                { idx: 1, label: '02 Division' },
+                { idx: 2, label: '03 Condense' },
+                { idx: 3, label: '04 Exit' }
+              ].map((step) => {
+                const isCurrent = activePhase === step.idx;
+                return (
+                  <button
+                    type="button"
+                    key={step.idx}
+                    onClick={() => setLockedPhase(lockedPhase === step.idx ? null : step.idx)}
+                    aria-pressed={lockedPhase === step.idx}
+                    className={`py-2.5 px-1 text-center text-[10px] font-bold uppercase tracking-widest transition-colors cursor-pointer ${
+                      isCurrent ? 'bg-[#23191E] text-white' : 'bg-white text-stone-600 hover:bg-[#F2ECE4]'
+                    }`}
+                  >
+                    {step.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <figcaption className="px-5 py-3 bg-[#F2ECE4] border-t border-stone-300 flex flex-wrap items-center justify-between gap-3 text-[11px] text-stone-700">
+            <div className="flex flex-wrap items-center gap-4">
+              <span className="inline-flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-[#F9EBEE] border border-[#38242E]" /> Host Cell</span>
+              <span className="inline-flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-[#38242E]" /> Travel Pod (EB)</span>
+              <span className="inline-flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-[#C85A68]" /> Factory (RB)</span>
+              <span className="inline-flex items-center gap-1.5"><span className="w-2.5 h-2.5 bg-[#EBF2EE] border border-[#3D6356]" /> Inclusion Bubble</span>
+            </div>
+            <span className="text-stone-500">Click any phase above to freeze it</span>
+          </figcaption>
+        </figure>
+      );
+    });
+
+    // ============================================================================
+    // COMPONENT 2: CHAPTER 01 ANATOMICAL PATHWAY MAP (Clean Vertical Stack)
+    // ============================================================================
+    const AnatomicalBridgeMap = memo(() => {
+      const [activeSpot, setActiveSpot] = useState('ectocervix');
+      const currentSpot = ANATOMY_HOTSPOTS.find(h => h.id === activeSpot) || ANATOMY_HOTSPOTS[0];
+
+      return (
+        <div className="editorial-frame bg-white overflow-hidden my-8">
+          <div className="px-6 py-4 bg-[#23191E] text-white border-b border-stone-800 flex flex-wrap items-center justify-between gap-2">
+            <div>
+              <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-rose-400 block">
+                ANATOMICAL PATHWAY
+              </span>
+              <h3 className="font-serif-display text-lg sm:text-xl font-bold text-white">
+                Where It Enters, How It Climbs, and Where It Scars
+              </h3>
+            </div>
+            <span className="text-[10px] font-bold uppercase tracking-widest bg-stone-800 text-amber-300 border border-stone-700 px-3 py-1">
+              TAP SITE 01–03
+            </span>
+          </div>
+
+          <div className="p-6 sm:p-8 space-y-6">
+            <div className="grid grid-cols-3 bg-stone-300 gap-px border border-stone-300" role="tablist" aria-label="Anatomical pathway sites">
+              {ANATOMY_HOTSPOTS.map((spot) => {
+                const isSelected = activeSpot === spot.id;
+                return (
+                  <button
+                    type="button"
+                    role="tab"
+                    key={spot.id}
+                    aria-selected={isSelected}
+                    onClick={() => setActiveSpot(spot.id)}
+                    className={`py-3 px-3 text-left transition-colors cursor-pointer ${
+                      isSelected ? 'bg-[#23191E] text-white' : 'bg-[#F2ECE4] text-stone-800 hover:bg-rose-50/60'
+                    }`}
+                  >
+                    <span className={`text-[10px] font-bold uppercase tracking-widest block ${isSelected ? 'text-amber-300' : 'text-rose-900'}`}>
+                      SITE {spot.num}
+                    </span>
+                    <span className="text-xs sm:text-sm font-bold line-clamp-1 mt-0.5">
+                      {spot.id === 'ectocervix' ? 'Outer Cervix' : spot.id === 'endocervix' ? 'Inner Canal' : 'Fallopian Tube'}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="bg-[#FFFDF9] p-4 border border-stone-300">
+              <svg
+                role="img"
+                aria-label="Anatomical map of the female reproductive tract highlighting three key sites: 01 the outer cervix ectopy zone, 02 the inner cervical canal and uterus, and 03 the fallopian tubes."
+                viewBox="0 0 340 210"
+                className="w-full max-w-md mx-auto h-auto block"
+                shapeRendering="geometricPrecision"
+              >
+                <g stroke="#EFEAE2" strokeWidth="1.5">
+                  <line x1="0" y1="55" x2="340" y2="55" /><line x1="0" y1="110" x2="340" y2="110" />
+                  <line x1="0" y1="165" x2="340" y2="165" /><line x1="170" y1="0" x2="170" y2="210" />
+                </g>
+
+                <g transform="translate(0, -18)">
+                  <path d="M 132 72 C 88 52, 48 68, 42 108 C 38 124, 52 132, 64 118 C 72 104, 88 86, 128 88" fill={activeSpot === 'oviduct' ? '#F4D5DC' : '#F9EBEE'} stroke="#38242E" strokeWidth="1.5" />
+                  <path d="M 208 72 C 252 52, 292 68, 298 108 C 302 124, 288 132, 276 118 C 268 104, 252 86, 212 88" fill={activeSpot === 'oviduct' ? '#F4D5DC' : '#F9EBEE'} stroke="#38242E" strokeWidth="1.5" />
+
+                  <ellipse cx="78" cy="122" rx="16" ry="11" fill="#FBF1E6" stroke="#38242E" strokeWidth="1.5" />
+                  <ellipse cx="262" cy="122" rx="16" ry="11" fill="#FBF1E6" stroke="#38242E" strokeWidth="1.5" />
+
+                  <path d="M 126 68 Q 170 48 214 68 L 198 164 L 142 164 Z" fill={activeSpot === 'endocervix' ? '#F4D5DC' : '#F9EBEE'} stroke="#38242E" strokeWidth="1.5" />
+                  <path d="M 144 78 Q 170 68 196 78 L 180 160 L 160 160 Z" fill="#FFFDF9" stroke="#C85A68" strokeWidth="1.5" />
+
+                  <rect x="146" y="160" width="48" height="44" rx="3" fill={activeSpot === 'ectocervix' ? '#F4D5DC' : '#F9EBEE'} stroke="#38242E" strokeWidth="1.5" />
+                  <rect x="164" y="160" width="12" height="44" fill="#EBF2EE" stroke="#3D6356" strokeWidth="1.5" />
+
+                  <path d="M 150 204 Q 170 212 190 204" fill="none" stroke="#B85265" strokeWidth="3.5" strokeLinecap="round" />
+                  <path d="M 170 206 L 170 115 Q 170 82 248 72" fill="none" stroke="#3D6356" strokeWidth="1.5" strokeDasharray="4 3" />
+
+                  <g onClick={() => setActiveSpot('ectocervix')} className="cursor-pointer">
+                    <circle cx="170" cy="204" r={activeSpot === 'ectocervix' ? 13 : 10} fill={activeSpot === 'ectocervix' ? '#A34355' : '#38242E'} stroke="#FFFDF9" strokeWidth="2" />
+                    <text x="170" y="208" textAnchor="middle" fill="#FFFFFF" fontSize="9" fontWeight="700">01</text>
+                  </g>
+
+                  <g onClick={() => setActiveSpot('endocervix')} className="cursor-pointer">
+                    <circle cx="170" cy="142" r={activeSpot === 'endocervix' ? 13 : 10} fill={activeSpot === 'endocervix' ? '#A34355' : '#38242E'} stroke="#FFFDF9" strokeWidth="2" />
+                    <text x="170" y="146" textAnchor="middle" fill="#FFFFFF" fontSize="9" fontWeight="700">02</text>
+                  </g>
+
+                  <g onClick={() => setActiveSpot('oviduct')} className="cursor-pointer">
+                    <circle cx="256" cy="72" r={activeSpot === 'oviduct' ? 13 : 10} fill={activeSpot === 'oviduct' ? '#A34355' : '#38242E'} stroke="#FFFDF9" strokeWidth="2" />
+                    <text x="256" y="76" textAnchor="middle" fill="#FFFFFF" fontSize="9" fontWeight="700">03</text>
+                  </g>
+                </g>
+              </svg>
+            </div>
+
+            <div className="p-6 bg-[#FAF7F2] border border-stone-300 space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-200 pb-3">
+                <h4 className="font-serif-display text-xl font-bold text-stone-900">
+                  {currentSpot.num}. {currentSpot.title}
+                </h4>
+                <span className="text-[10px] font-bold uppercase tracking-widest bg-rose-100 text-rose-950 border border-rose-300 px-2.5 py-0.5">
+                  {currentSpot.tag}
+                </span>
+              </div>
+
+              <p className="text-base text-stone-800 leading-relaxed">
+                {currentSpot.plain}
+              </p>
+
+              <div className="p-4 bg-[#FCFAFF] border-l-4 border-l-purple-800 border border-purple-300 text-xs sm:text-sm text-stone-800 leading-relaxed">
+                <strong className="text-purple-950 uppercase tracking-widest block text-[10px] mb-1">
+                  CELLULAR &amp; HISTOLOGICAL MECHANISM
+                </strong>
+                {currentSpot.science}
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    });
+
+    // ============================================================================
+    // COMPONENT 3: CHAPTER 03 STAGE-SYNCHRONIZED VERTICAL PLATE
+    // ============================================================================
+    const StageFluidCanvas = memo(({ cycleStage, exitMode, time }) => {
+      const p = (time % 4.2) / 4.2;
+      const gridScrollY = (time * 18) % 36;
+
+      const s1Down = smoothstep(0.05, 0.80, p);
+      const s1EbY = 12 + s1Down * 82;
+      const s1Indent = 24 * smoothstep(0.22, 0.65, p) * (1 - smoothstep(0.70, 0.92, p));
+      const s1CellPath = buildVerticalMetaballCellPath(180, 138, 76, s1Indent, 0, 0);
+
+      const s2SplitX = smoothstep(0.10, 0.45, p);
+      const s2SplitY = smoothstep(0.45, 0.80, p);
+
+      const s4Down = smoothstep(0.08, 0.90, p);
+      const s4Bulge = exitMode === 'extrusion' ? 20 * smoothstep(0.10, 0.45, p) * (1 - smoothstep(0.50, 0.80, p)) : 0;
+      const s4Narrow = exitMode === 'extrusion' ? 12 * smoothstep(0.25, 0.60, p) * (1 - smoothstep(0.62, 0.85, p)) : 0;
+      const s4CellPath = buildVerticalMetaballCellPath(180, 112, 68, 0, s4Bulge, s4Narrow);
+
+      return (
+        <svg
+          role="img"
+          aria-label={`Cellular illustration of Stage ${cycleStage} of the Chlamydia intracellular cycle.`}
+          viewBox="0 0 360 220"
+          className="w-full max-w-lg mx-auto h-auto border border-stone-300 bg-[#FFFDF9] block"
+          shapeRendering="geometricPrecision"
+        >
+          <g stroke="#EFEAE2" strokeWidth="1.5">
+            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
+              <line key={`svx-${i}`} x1={i * 36} y1="0" x2={i * 36} y2="220" />
+            ))}
+            {[-1, 0, 1, 2, 3, 4, 5, 6].map((i) => {
+              const yPos = i * 36 + gridScrollY;
+              return <line key={`shy-${i}`} x1="0" y1={yPos} x2="360" y2={yPos} />;
+            })}
+          </g>
+
+          <line x1="180" y1="0" x2="180" y2="220" stroke="#EAE3D9" strokeWidth="1.5" strokeDasharray="4 4" />
+
+          <g transform="translate(0, -15)">
+            {cycleStage === 1 && (
+              <g>
+                <path d={s1CellPath} fill="#F9EBEE" stroke="#38242E" strokeWidth="1.5" />
+                <path d={buildVerticalMetaballCellPath(180, 138, 70, s1Indent * 0.9, 0, 0)} fill="none" stroke="#C85A68" strokeWidth="1.5" />
+                <g transform="translate(228, 152) rotate(16)">
+                  <ellipse cx="0" cy="0" rx="16" ry="22" fill="#4A2E3B" stroke="#38242E" strokeWidth="1.5" />
+                </g>
+                {p > 0.55 && (
+                  <circle cx="180" cy={94} r={14 * smoothstep(0.55, 0.85, p)} fill="#EBF2EE" stroke="#3D6356" strokeWidth="1.5" />
+                )}
+                <g transform={`translate(180, ${s1EbY})`}>
+                  <circle cx="0" cy="0" r="9" fill="#38242E" stroke="#38242E" strokeWidth="1.5" />
+                  <circle cx="0" cy="0" r="3" fill="#F3C69F" stroke="#38242E" strokeWidth="1.5" />
+                </g>
+              </g>
+            )}
+
+            {cycleStage === 2 && (
+              <g>
+                <circle cx="180" cy="125" r="78" fill="#F9EBEE" stroke="#38242E" strokeWidth="1.5" />
+                <circle cx="180" cy="125" r="72" fill="none" stroke="#C85A68" strokeWidth="1.5" />
+                <g transform="translate(232, 96) rotate(20)">
+                  <ellipse cx="0" cy="0" rx="15" ry="21" fill="#4A2E3B" stroke="#38242E" strokeWidth="1.5" />
+                </g>
+                <circle cx="172" cy="132" r="42" fill="#EBF2EE" stroke="#3D6356" strokeWidth="1.5" />
+                <circle cx="172" cy="132" r="36" fill="none" stroke="#3D6356" strokeWidth="1.5" strokeDasharray="4 3" />
+                {[
+                  { sx: -1, sy: -1 },
+                  { sx: 1, sy: -1 },
+                  { sx: -1, sy: 1 },
+                  { sx: 1, sy: 1 }
+                ].map((q, idx) => (
+                  <rect
+                    key={idx}
+                    x={172 + q.sx * 11 * s2SplitX - 7}
+                    y={132 + q.sy * 11 * s2SplitY - 7}
+                    width="14"
+                    height="14"
+                    rx="2"
+                    fill="#C85A68"
+                    stroke="#38242E"
+                    strokeWidth="1.5"
+                  />
+                ))}
+              </g>
+            )}
+
+            {cycleStage === 3 && (
+              <g>
+                <circle cx="180" cy="125" r="78" fill="#F9EBEE" stroke="#38242E" strokeWidth="1.5" />
+                <circle cx="180" cy="125" r="72" fill="none" stroke="#38242E" strokeWidth="1.5" />
+                <g transform="translate(232, 92) rotate(20)">
+                  <ellipse cx="0" cy="0" rx="15" ry="21" fill="#4A2E3B" stroke="#38242E" strokeWidth="1.5" />
+                </g>
+                <circle cx="172" cy="132" r="46" fill="#EBF2EE" stroke="#3D6356" strokeWidth="1.5" />
+                <rect x="165" y="125" width="14" height="14" rx="2" fill="#C85A68" stroke="#38242E" strokeWidth="1.5" />
+                {[0, 1, 2, 3, 4, 5].map((i) => {
+                  const ang = (i * Math.PI) / 3 + p * Math.PI * 2;
+                  const cx = 172 + Math.cos(ang) * 24;
+                  const cy = 132 + Math.sin(ang) * 24;
+                  return <circle key={i} cx={cx} cy={cy} r="6.5" fill="#38242E" stroke="#38242E" strokeWidth="1.5" />;
+                })}
+              </g>
+            )}
+
+            {cycleStage === 4 && (
+              <g>
+                {exitMode === 'extrusion' ? (
+                  <g>
+                    <path d={s4CellPath} fill="#F9EBEE" stroke="#38242E" strokeWidth="1.5" />
+                    <g transform="translate(222, 92) rotate(18)">
+                      <ellipse cx="0" cy="0" rx="14" ry="20" fill="#4A2E3B" stroke="#38242E" strokeWidth="1.5" />
+                    </g>
+                    {0.62 >= p && (
+                      <path
+                        d={buildHourglassNeckPath(180, 176, 152 + s4Down * 88 - 22, 15, 13, 1 - smoothstep(0.15, 0.62, p))}
+                        fill="#F9EBEE"
+                        stroke="#38242E"
+                        strokeWidth="1.5"
+                      />
+                    )}
+                    <g transform={`translate(180, ${152 + s4Down * 88})`}>
+                      <circle cx="0" cy="0" r="24" fill="#F9EBEE" stroke="#38242E" strokeWidth="1.5" />
+                      <circle cx="0" cy="0" r="19.5" fill="#EBF2EE" stroke="#3D6356" strokeWidth="1.5" />
+                      <circle cx="-6.5" cy="-6.5" r="4.5" fill="#38242E" stroke="#38242E" strokeWidth="1.5" />
+                      <circle cx="6.5" cy="-6.5" r="4.5" fill="#38242E" stroke="#38242E" strokeWidth="1.5" />
+                      <circle cx="-6.5" cy="6.5" r="4.5" fill="#38242E" stroke="#38242E" strokeWidth="1.5" />
+                      <rect x="2.5" y="2.5" width="8" height="8" rx="1.5" fill="#C85A68" stroke="#38242E" strokeWidth="1.5" />
+                    </g>
+                  </g>
+                ) : (
+                  <g>
+                    <path d="M 132 164 A 68 68 0 1 1 228 164" fill="#F9EBEE" stroke="#38242E" strokeWidth="1.5" />
+                    <line x1="132" y1="164" x2="228" y2="164" stroke="#C85A68" strokeWidth="1.5" strokeDasharray="5 5" />
+                    <g transform="translate(222, 92) rotate(18)">
+                      <ellipse cx="0" cy="0" rx="14" ry="20" fill="#4A2E3B" stroke="#38242E" strokeWidth="1.5" />
+                    </g>
+                    {[
+                      { dx: -26, dy: 78 },
+                      { dx: -9, dy: 96 },
+                      { dx: 9, dy: 92 },
+                      { dx: 26, dy: 74 }
+                    ].map((pt, i) => (
+                      <g key={i} transform={`translate(${180 + pt.dx * s4Down}, ${148 + pt.dy * s4Down})`}>
+                        <circle cx="0" cy="0" r="6" fill="#38242E" stroke="#38242E" strokeWidth="1.5" />
+                        <rect x="8" y="-4" width="6" height="6" rx="1" fill="#C85A68" stroke="#38242E" strokeWidth="1.5" />
+                      </g>
+                    ))}
+                  </g>
+                )}
+              </g>
+            )}
+          </g>
+        </svg>
+      );
+    });
+
+    // ============================================================================
+    // COMPONENT 4: CHAPTER 04 CHRONIC INFLAMMATION & FIBROSIS MOTION PLATE
+    // ============================================================================
+    const ChronicInflammationPlate = memo(({ selectedSymptomId, onSelectStage }) => {
+      const [autoLoop, setAutoLoop] = useState(true);
+      const [isPaused, setIsPaused] = useState(false);
+      const time = useAnimationClock(isPaused);
+
+      const mappedStageIdx = selectedSymptomId === 'silent' ? 0 : selectedSymptomId === 'discharge' ? 1 : 2;
+      const cycle = autoLoop ? (time % 12) / 12 : (mappedStageIdx * 0.34 + 0.16);
+
+      const activeStage = 0.33 >= cycle ? 1 : 0.66 >= cycle ? 2 : 3;
+
+      const stressRipple = smoothstep(0.02, 0.25, cycle);
+      const swellFactor = smoothstep(0.30, 0.52, cycle) * (1 - smoothstep(0.64, 0.78, cycle));
+      const immuneGlide = smoothstep(0.32, 0.56, cycle);
+      const scarFactor = smoothstep(0.64, 0.88, cycle);
+
+      const scrollY = (time * 16) % 260;
+      const gridOffset = (time * 8) % 40;
+
+      const nodes = TISSUE_NODES.map((n) => {
+        const rawY = (n.baseY + scrollY) % 260;
+        const edgeAlpha = smoothstep(0, 22, rawY) * (1 - smoothstep(238, 260, rawY));
+        const contractX = n.baseX + (180 - n.baseX) * 0.24 * scarFactor;
+        const contractY = rawY + (130 - rawY) * 0.16 * scarFactor;
+        return { ...n, x: contractX, y: contractY, edgeAlpha };
+      });
+
+      const coreAttractors = nodes.filter(n => n.core && n.edgeAlpha > 0.3);
+
+      return (
+        <div className="bg-[#F2ECE4] p-5 border border-stone-300 space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-stone-300">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-[#3D6356]" />
+              <span className="text-[11px] font-bold uppercase tracking-widest text-stone-800">
+                TISSUE REMODELING SIMULATION
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <button
+                type="button"
+                onClick={() => setAutoLoop(a => !a)}
+                className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 border cursor-pointer transition-colors ${
+                  autoLoop ? 'bg-purple-900 text-white border-purple-950' : 'bg-white text-stone-700 border-stone-300 hover:bg-stone-100'
+                }`}
+              >
+                {autoLoop ? 'Auto Scroll' : 'Sync to Tab'}
+              </button>
+              <button
+                type="button"
+                onClick={() => setIsPaused(p => !p)}
+                aria-pressed={isPaused}
+                className="text-[10px] font-bold uppercase tracking-widest bg-white hover:bg-stone-100 text-stone-800 border border-stone-300 px-2.5 py-1 cursor-pointer"
+              >
+                {isPaused ? 'Resume' : 'Pause'}
+              </button>
+            </div>
+          </div>
+
+          <div className="bg-[#FFFDF9] p-3 border border-stone-300">
+            <svg
+              role="img"
+              aria-label="Animated tissue progression showing silent cellular stress, immune cell clustering with tissue swelling, and contraction into rigid fibrotic scar tissue."
+              viewBox="0 0 360 220"
+              className="w-full max-w-lg mx-auto h-auto block bg-[#FFFDF9]"
+              shapeRendering="geometricPrecision"
+            >
+              <g transform="translate(0, -20)">
+                <g stroke="#EFEAE2" strokeWidth="1.5" fill="none">
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+                    <path key={`vg-${i}`} d={buildWarpedGridLine(true, i * 40, 260, coreAttractors, scarFactor)} />
+                  ))}
+                  {[0, 1, 2, 3, 4, 5, 6].map((i) => {
+                    const scrolledGridY = i * 40 + gridOffset;
+                    return <path key={`hg-${i}`} d={buildWarpedGridLine(false, scrolledGridY, 360, coreAttractors, scarFactor)} />;
+                  })}
+                </g>
+
+                {scarFactor > 0.05 && (
+                  <g stroke="#38242E" strokeWidth="1.5" opacity={scarFactor}>
+                    {nodes.map((n, idx) => {
+                      const next = nodes[(idx + 1) % nodes.length];
+                      if (Math.abs(n.y - next.y) > 130) return null;
+                      return (
+                        <g key={`strut-${idx}`}>
+                          <line x1={n.x} y1={n.y} x2={next.x} y2={next.y} stroke="#C85A68" strokeWidth="1.5" />
+                          <line x1={n.x + 6} y1={n.y - 4} x2={next.x + 6} y2={next.y - 4} stroke="#38242E" strokeWidth="1.5" strokeDasharray="4 3" />
+                        </g>
+                      );
+                    })}
+                  </g>
+                )}
+
+                {nodes.map((node) => {
+                  const cellFill = scarFactor > 0.55 ? (node.core ? "#D47A87" : "#4A2E3B") : "#F9EBEE";
+                  const nucleusFill = scarFactor > 0.55 && !node.core ? "#F9EBEE" : "#38242E";
+                  const pathD = buildMorphingTissueCellPath(node.x, node.y, node.r, swellFactor, scarFactor, node.seed + time * (1 - scarFactor * 0.85));
+                  const rippleWave = 0.5 + 0.5 * Math.sin(time * 3.4 - node.y * 0.04);
+
+                  return (
+                    <g key={node.id} opacity={node.edgeAlpha}>
+                      {swellFactor > 0.08 && (
+                        <circle cx={node.x} cy={node.y} r={node.r * (1 + 0.34 * swellFactor)} fill="none" stroke="#C85A68" strokeWidth="1.5" strokeDasharray="4 3" opacity={swellFactor} />
+                      )}
+                      <path d={pathD} fill={cellFill} stroke="#38242E" strokeWidth="1.5" strokeLinejoin={scarFactor > 0.5 ? "miter" : "round"} />
+                      {scarFactor > 0.5 ? (
+                        <polygon points={`${node.x},${node.y - 7} ${node.x + 7},${node.y} ${node.x},${node.y + 7} ${node.x - 7},${node.y}`} fill={nucleusFill} stroke="#38242E" strokeWidth="1.5" />
+                      ) : (
+                        <circle cx={node.x} cy={node.y} r={6.5 + 2 * swellFactor} fill={nucleusFill} stroke="#38242E" strokeWidth="1.5" />
+                      )}
+                      {stressRipple > 0.05 && 0.75 >= scarFactor && (
+                        <g opacity={(1 - scarFactor * 0.8) * stressRipple}>
+                          {[0, 1, 2].map((m) => {
+                            const mAngle = (m * 2 * Math.PI) / 3 + node.seed;
+                            const dist = (node.r * 0.58) + rippleWave * 6;
+                            const mx = node.x + Math.cos(mAngle) * dist;
+                            const my = node.y + Math.sin(mAngle) * dist;
+                            return (
+                              <rect key={m} x={mx - 3} y={my - 3} width="6" height="6" transform={`rotate(45 ${mx} ${my})`} fill="#C85A68" stroke="#38242E" strokeWidth="1.5" />
+                            );
+                          })}
+                        </g>
+                      )}
+                    </g>
+                  );
+                })}
+
+                {immuneGlide > 0.05 && (
+                  <g opacity={immuneGlide}>
+                    {[
+                      { startX: 18, startY: 50, targetIdx: 0, dx: 24, dy: 12 },
+                      { startX: 342, startY: 65, targetIdx: 1, dx: -26, dy: 10 },
+                      { startX: 22, startY: 135, targetIdx: 2, dx: -32, dy: -8 },
+                      { startX: 338, startY: 140, targetIdx: 2, dx: 32, dy: 8 },
+                      { startX: 340, startY: 205, targetIdx: 4, dx: -24, dy: -12 },
+                      { startX: 25, startY: 225, targetIdx: 5, dx: -28, dy: 6 }
+                    ].map((imm, idx) => {
+                      const target = nodes[imm.targetIdx];
+                      const ix = imm.startX + (target.x + imm.dx - imm.startX) * immuneGlide;
+                      const iy = imm.startY + (target.y + imm.dy - imm.startY) * immuneGlide;
+                      return (
+                        <g key={`imm-${idx}`} opacity={target.edgeAlpha} transform={`translate(${ix.toFixed(2)}, ${iy.toFixed(2)})`}>
+                          <polygon points="0,-9 6.5,-6.5 9,0 6.5,6.5 0,9 -6.5,6.5 -9,0 -6.5,-6.5" fill="#2E4F44" stroke="#23191E" strokeWidth="1.5" />
+                          <rect x="-2.5" y="-2.5" width="5" height="5" fill="#FBF1E6" stroke="#23191E" strokeWidth="1.2" />
+                        </g>
+                      );
+                    })}
+                  </g>
+                )}
+              </g>
+            </svg>
+          </div>
+
+          <div className="max-w-lg mx-auto grid grid-cols-3 bg-stone-300 gap-px border border-stone-300" role="group" aria-label="Select chronic inflammation stage">
+            {[
+              { stage: 1, tabId: 'silent', label: '01 Silent Stress' },
+              { stage: 2, tabId: 'discharge', label: '02 Immune Swelling' },
+              { stage: 3, tabId: 'pid', label: '03 Fibrotic Scarring' }
+            ].map((item) => {
+              const isCurrent = activeStage === item.stage;
+              return (
+                <button
+                  type="button"
+                  key={item.stage}
+                  onClick={() => {
+                    setAutoLoop(false);
+                    onSelectStage(item.tabId);
+                  }}
+                  className={`py-2.5 px-1.5 text-center text-[10px] font-bold uppercase tracking-widest transition-colors cursor-pointer ${
+                    isCurrent ? 'bg-[#23191E] text-white' : 'bg-white text-stone-700 hover:bg-[#FAF7F2]'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      );
+    });
+
+    // ============================================================================
+    // ZERO-RE-RENDER SCROLL PROGRESS BAR
+    // ============================================================================
+    const ReadingProgressBar = memo(() => {
+      const barRef = useRef(null);
+
+      useEffect(() => {
+        let ticking = false;
+        const updateBar = () => {
+          if (barRef.current) {
+            const total = document.documentElement.scrollHeight - window.innerHeight;
+            const scale = total > 0 ? Math.min(1, Math.max(0, window.scrollY / total)) : 0;
+            barRef.current.style.transform = `scaleX(${scale})`;
+          }
+          ticking = false;
+        };
+
+        const onScroll = () => {
+          if (!ticking) {
+            window.requestAnimationFrame(updateBar);
+            ticking = true;
+          }
+        };
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        updateBar();
+        return () => window.removeEventListener('scroll', onScroll);
+      }, []);
+
+      return (
+        <div aria-hidden="true" className="w-full h-1 bg-stone-200 overflow-hidden">
+          <div
+            ref={barRef}
+            style={{ transform: 'scaleX(0)', transformOrigin: '0% 50%', willChange: 'transform' }}
+            className="h-full w-full bg-rose-700"
+          />
+        </div>
+      );
+    });
+
+    // ============================================================================
+    // EDITORIAL INLINE HIGHLIGHTS & OBVIOUS GLOSSARY CHIPS
+    // ============================================================================
+    const SciHighlight = memo(({ children, tone = "rose" }) => {
+      const tones = {
+        rose: "bg-rose-100/85 text-rose-950 px-1.5 py-0 border-b border-rose-400 font-semibold inline-highlight",
+        emerald: "bg-emerald-100/85 text-emerald-950 px-1.5 py-0 border-b border-emerald-400 font-semibold inline-highlight",
+        purple: "bg-purple-100/85 text-purple-950 px-1.5 py-0 border-b border-purple-400 font-semibold inline-highlight",
+        amber: "bg-amber-100/85 text-amber-950 px-1.5 py-0 border-b border-amber-400 font-semibold inline-highlight"
+      };
+      return <span className={tones[tone] || tones.rose}>{children}</span>;
+    });
+
+    const TermButton = memo(({ term, label, onOpenGlossary }) => (
+      <button
+        type="button"
+        onClick={(e) => {
+          e.stopPropagation();
+          onOpenGlossary(term);
+        }}
+        title={`Click to open "${label || term}" in the Scientific Glossary`}
+        aria-label={`Open definition for ${label || term} in glossary`}
+        className="glossary-term-chip"
+      >
+        <IconBook size={12} className="shrink-0 opacity-85" />
+        <span>{label || term}</span>
+        <span className="glossary-chip-badge">Define</span>
+      </button>
+    ));
+
+    // ============================================================================
+    // DUAL-SIDED FLASHCARD (Clean, Grounded Labels)
+    // ============================================================================
+    const FlipFlashcard = memo(({
+      resetKey,
+      frontTitle = "PLAIN-ENGLISH OVERVIEW",
+      backTitle = "CELLULAR & MOLECULAR MECHANISM",
+      frontContent,
+      backContent,
+    }) => {
+      const [isFlipped, setIsFlipped] = useState(false);
+
+      useEffect(() => {
+        setIsFlipped(false);
+      }, [resetKey]);
+
+      return (
+        <section aria-label={isFlipped ? backTitle : frontTitle} className="my-5">
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-2.5">
+            <span
+              aria-live="polite"
+              className={`text-[10px] font-bold uppercase tracking-[0.16em] px-3 py-1 border transition-colors ${
+                !isFlipped
+                  ? 'bg-amber-100 text-amber-950 border-stone-900'
+                  : 'bg-[#23191E] text-amber-300 border-stone-700'
+              }`}
+            >
+              {!isFlipped ? 'SIDE A // PLAIN ENGLISH' : 'SIDE B // CELLULAR MECHANISM'}
+            </span>
+
+            <button
+              type="button"
+              onClick={() => setIsFlipped(prev => !prev)}
+              aria-expanded={isFlipped}
+              className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-stone-900 hover:text-white bg-white hover:bg-[#23191E] border border-stone-900 px-3.5 py-1.5 transition-colors cursor-pointer"
+            >
+              <IconFlip size={12} className={`transition-transform duration-300 ${isFlipped ? 'rotate-180' : ''}`} />
+              <span>{!isFlipped ? 'Flip for Cellular Science' : 'Back to Plain English'}</span>
+            </button>
+          </div>
+
+          {!isFlipped ? (
+            <div className="bg-[#FFFDF7] border border-stone-900 border-t-4 border-t-amber-600 p-6 sm:p-7 flex flex-col justify-between space-y-5">
+              <div className="space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-stone-200 pb-2.5">
+                  <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-amber-950">
+                    {frontTitle}
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-stone-500">
+                    01 / 02 · OVERVIEW
+                  </span>
+                </div>
+                <div className="text-base text-stone-800 leading-relaxed space-y-3 pt-1">
+                  {frontContent}
+                </div>
+              </div>
+
+              <div className="pt-3 border-t border-stone-200 flex flex-wrap items-center justify-between gap-4">
+                <span className="text-xs text-stone-600">
+                  Want the receptor, enzyme, and cytokine breakdown?
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setIsFlipped(true)}
+                  className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest bg-[#23191E] hover:bg-rose-900 text-white px-4 py-2 transition-colors cursor-pointer"
+                >
+                  <span>Read Cellular Mechanism (Side B) →</span>
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="bg-[#FCFAFF] border border-stone-900 border-t-4 border-t-purple-900 p-6 sm:p-7 flex flex-col justify-between space-y-5">
+              <div className="space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-purple-200 pb-2.5">
+                  <div className="text-[11px] font-bold uppercase tracking-[0.14em] text-purple-950">
+                    {backTitle}
+                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-widest bg-[#23191E] text-amber-300 px-2.5 py-0.5">
+                    02 / 02 · PATHOPHYSIOLOGY
+                  </span>
+                </div>
+                <div className="text-sm text-stone-800 leading-relaxed pt-1">
+                  {backContent}
+                </div>
+              </div>
+
+              <div className="pt-3 border-t border-purple-200 flex flex-wrap items-center justify-between gap-4">
+                <span className="text-xs text-purple-950">
+                  Viewing cellular &amp; molecular pathophysiology.
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setIsFlipped(false)}
+                  className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest bg-purple-100 hover:bg-purple-200 text-purple-950 border border-purple-400 px-4 py-2 transition-colors cursor-pointer"
+                >
+                  <span>← Back to Plain English</span>
+                </button>
+              </div>
+            </div>
+          )}
+        </section>
+      );
+    });
+
+    // ============================================================================
+    // ISOLATED MODULE: CHAPTER 02 HEALTHY PHYSIOLOGY (Stacked Single-Column Flow)
+    // ============================================================================
+    const Chapter2Physiology = memo(({ onOpenGlossary }) => {
+      const [anatomyTab, setAnatomyTab] = useState('cervix');
+      const [cervixAgeMode, setCervixAgeMode] = useState('young');
+      const [ciliaHealthyMode, setCiliaHealthyMode] = useState(true);
+      const time = useAnimationClock(false);
+
+      const ciliaAngle = 11 * Math.sin(time * 3.8);
+
+      return (
+        <article id="ch2" className="scroll-mt-28 space-y-6">
+          <div className="border-b-2 border-stone-900 pb-3">
+            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-rose-800 block mb-1">
+              PART 02 // HEALTHY BASELINE
+            </span>
+            <h2 className="font-serif-display text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900 leading-tight">
+              How Your Body Normally Protects &amp; Transports an Egg
+            </h2>
+          </div>
+
+          <p className="text-base sm:text-[17px] text-stone-700 leading-relaxed">
+            To see how <em>Chlamydia trachomatis</em> causes damage, it helps to look at how a healthy reproductive tract works on a normal day. Select any of the three systems below.
+          </p>
+
+          <div className="editorial-frame bg-white overflow-hidden">
+            <div
+              role="tablist"
+              aria-label="Healthy reproductive physiology systems"
+              className="grid grid-cols-1 sm:grid-cols-3 bg-stone-300 gap-px border-b border-stone-300"
+            >
+              {[
+                { id: 'cervix', num: '01', label: 'The Cervix & Mucus Shield' },
+                { id: 'tubes', num: '02', label: 'Fallopian Tube Egg Transport' },
+                { id: 'immunity', num: '03', label: 'Baseline Mucosal Immunity' }
+              ].map((tab) => (
+                <button
+                  type="button"
+                  role="tab"
+                  key={tab.id}
+                  id={`tab-${tab.id}`}
+                  aria-selected={anatomyTab === tab.id}
+                  aria-controls={`panel-${tab.id}`}
+                  onClick={() => setAnatomyTab(tab.id)}
+                  className={`py-4 px-5 text-left transition-colors cursor-pointer flex items-center gap-3 ${
+                    anatomyTab === tab.id ? 'bg-[#23191E] text-white' : 'bg-[#F2ECE4] text-stone-800 hover:bg-rose-50/70'
+                  }`}
+                >
+                  <span className={`text-xs font-bold px-2 py-0.5 tabular-nums shrink-0 ${
+                    anatomyTab === tab.id ? 'bg-rose-700 text-white' : 'bg-white text-stone-700 border border-stone-300'
+                  }`}>
+                    {tab.num}
+                  </span>
+                  <span className="text-xs font-bold uppercase tracking-wider leading-snug">
+                    {tab.label}
+                  </span>
+                </button>
+              ))}
+            </div>
+
+            {anatomyTab === 'cervix' && (
+              <div id="panel-cervix" role="tabpanel" aria-labelledby="tab-cervix" className="p-6 sm:p-8 space-y-6">
+                <div>
+                  <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-rose-800 mb-1">
+                    SYSTEM 01 // THE CERVIX
+                  </div>
+                  <h3 className="font-serif-display text-2xl font-bold text-stone-900 leading-snug">
+                    Outer Multi-Layered Armor vs. Inner Mucus-Producing Cells
+                  </h3>
+                </div>
+
+                <p className="text-stone-700 leading-relaxed text-base">
+                  The cervix sits between the lower vaginal canal and the upper uterus. It uses two very different types of tissue to keep bacteria out:
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 bg-stone-300 gap-px border border-stone-300">
+                  <div className="bg-amber-50/60 p-5 space-y-1.5">
+                    <div className="text-xs font-bold text-amber-950 uppercase tracking-wider">
+                      1. Outer Multi-Layered Armor
+                    </div>
+                    <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                      Covers the outer cervix in <SciHighlight tone="amber">dozens of stacked, tough cell layers</SciHighlight> like a brick wall. Chlamydia cannot easily infect these outer cells.
+                    </p>
+                  </div>
+
+                  <div className="bg-rose-50/60 p-5 space-y-1.5">
+                    <div className="text-xs font-bold text-rose-950 uppercase tracking-wider">
+                      2. Inner Single-Layer Cells
+                    </div>
+                    <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                      Lines the inner canal with a <SciHighlight tone="rose">fragile, one-cell-thin layer</SciHighlight> that makes protective mucus. <strong>These are the exact cells Chlamydia targets.</strong>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="bg-[#F2ECE4] p-5 border border-stone-300 space-y-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="text-xs font-bold text-stone-900 uppercase tracking-wider">
+                      Interactive Comparison: Why Age Matters
+                    </span>
+                    <div className="grid grid-cols-2 bg-stone-300 gap-px border border-stone-300" role="group" aria-label="Select cervical maturity state">
+                      <button
+                        type="button"
+                        aria-pressed={cervixAgeMode === 'young'}
+                        onClick={() => setCervixAgeMode('young')}
+                        className={`py-2 px-3 text-[11px] font-bold uppercase tracking-wider transition-colors cursor-pointer ${
+                          cervixAgeMode === 'young' ? 'bg-rose-800 text-white' : 'bg-white text-stone-700 hover:bg-stone-100'
+                        }`}
+                      >
+                        Ages 15–25
+                      </button>
+                      <button
+                        type="button"
+                        aria-pressed={cervixAgeMode === 'mature'}
+                        onClick={() => setCervixAgeMode('mature')}
+                        className={`py-2 px-3 text-[11px] font-bold uppercase tracking-wider transition-colors cursor-pointer ${
+                          cervixAgeMode === 'mature' ? 'bg-purple-900 text-white' : 'bg-white text-stone-700 hover:bg-stone-100'
+                        }`}
+                      >
+                        Adult (26+)
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="bg-[#FFFDF9] p-4 border border-stone-300">
+                    <svg
+                      role="img"
+                      aria-label={
+                        cervixAgeMode === 'young'
+                          ? 'Immature cervix in ages 15 to 25 showing delicate single-layer columnar cells exposed on the outer surface.'
+                          : 'Mature adult cervix protected by multi-layered squamous cells.'
+                      }
+                      viewBox="0 0 320 135"
+                      className="w-full max-w-lg mx-auto h-auto block"
+                      shapeRendering="geometricPrecision"
+                    >
+                      <g stroke="#EFEAE2" strokeWidth="1.5">
+                        <line x1="0" y1="45" x2="320" y2="45" /><line x1="0" y1="95" x2="320" y2="95" />
+                      </g>
+
+                      <path d={`M 20 22 Q 90 ${14 + 4 * Math.sin(time * 1.5)} 160 22 T 300 22`} fill="none" stroke="#3D6356" strokeWidth="1.5" strokeLinecap="round" />
+
+                      {cervixAgeMode === 'young' ? (
+                        <g>
+                          {IDX_2.map((col) =>
+                            IDX_3.map((row) => (
+                              <rect key={`sq-${col}-${row}`} x={20 + col * 28} y={38 + row * 19} width="25" height="16" rx="1.5" fill="#FBF1E6" stroke="#38242E" strokeWidth="1.5" />
+                            ))
+                          )}
+                          {IDX_8.map((i) => (
+                            <g key={`col-${i}`}>
+                              <rect x={80 + i * 27} y={34} width="24" height="62" rx="1.5" fill="#F9EBEE" stroke="#38242E" strokeWidth="1.5" />
+                              <circle cx={92 + i * 27} cy={78} r="4" fill="#C85A68" stroke="#38242E" strokeWidth="1.5" />
+                              <circle cx={92 + i * 27} cy={24 + 3 * Math.sin(time * 2 + i)} r="3.5" fill="#38242E" stroke="#38242E" strokeWidth="1.5" />
+                            </g>
+                          ))}
+                        </g>
+                      ) : (
+                        <g>
+                          {IDX_7.map((col) =>
+                            IDX_3.map((row) => (
+                              <rect key={`msq-${col}-${row}`} x={20 + col * 32} y={38 + row * 19} width="29" height="16" rx="1.5" fill="#FBF1E6" stroke="#38242E" strokeWidth="1.5" />
+                            ))
+                          )}
+                          {IDX_2.map((i) => (
+                            <g key={`mcol-${i}`}>
+                              <rect x={248 + i * 26} y={34} width="23" height="62" rx="1.5" fill="#F9EBEE" stroke="#38242E" strokeWidth="1.5" />
+                              <circle cx={259 + i * 26} cy={78} r="4" fill="#C85A68" stroke="#38242E" strokeWidth="1.5" />
+                            </g>
+                          ))}
+                        </g>
+                      )}
+
+                      <line x1="15" y1="102" x2="305" y2="102" stroke="#38242E" strokeWidth="1.5" strokeLinecap="round" />
+                    </svg>
+                  </div>
+
+                  <p className="text-xs text-stone-700 leading-relaxed">
+                    {cervixAgeMode === 'young'
+                      ? 'Ages 15–25: Single-layer columnar cells sit out on the outer cervix, giving Chlamydia direct access to its target receptors.'
+                      : 'Adult (26+): Multi-layered squamous cells cover the outer surface, keeping delicate columnar cells tucked inside the canal.'}
+                  </p>
+                </div>
+
+                <FlipFlashcard
+                  resetKey="cervix-flashcard"
+                  frontTitle="WHY AGES 15–25 ARE MORE VULNERABLE"
+                  backTitle="HISTOLOGICAL ARCHITECTURE & MUCUS BARRIER"
+                  frontContent={
+                    <p>
+                      Between <strong>ages 15 and 25</strong>, those delicate, one-layer-thin inner cells naturally sit out on the outer surface of the cervix while your body is still maturing. Even though they pump out a sticky <strong>mucus shield</strong> to trap germs, having single-layer cells sitting exposed on the outside makes it much easier for <em>Chlamydia trachomatis</em> to attach during sex.
+                    </p>
+                  }
+                  backContent={
+                    <ul className="list-disc pl-5 space-y-2.5">
+                      <li>
+                        <strong>Stratified Squamous vs. Simple Columnar Epithelium:</strong> The mature ectocervix is covered by resilient, multi-layered <em>stratified squamous epithelium</em>, whereas the endocervical canal is lined by single-layer <em>simple columnar epithelium</em> connected by tight junctions.
+                      </li>
+                      <li>
+                        <strong>Cervical Ectopy in Ages 15–25:</strong> Prior to complete adult squamous metaplasia, the squamocolumnar junction sits exposed on the ectocervix, presenting simple columnar surface receptors directly to <em>C. trachomatis</em>.
+                      </li>
+                      <li>
+                        <strong>Cervical Mucus Barrier:</strong> Columnar cells secrete a mucin glycoprotein hydrogel loaded with <strong>secretory IgA (sIgA) antibodies, defensins, and lysozyme</strong> to trap and clear microbes downward.
+                      </li>
+                    </ul>
+                  }
+                />
+              </div>
+            )}
+
+            {anatomyTab === 'tubes' && (
+              <div id="panel-tubes" role="tabpanel" aria-labelledby="tab-tubes" className="p-6 sm:p-8 space-y-6">
+                <div>
+                  <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-rose-800 mb-1">
+                    SYSTEM 02 // THE FALLOPIAN TUBES
+                  </div>
+                  <h3 className="font-serif-display text-2xl font-bold text-stone-900 leading-snug">
+                    How <TermButton term="Ciliated & Peg Cells" label="Ciliated & Secretory Peg Cells" onOpenGlossary={onOpenGlossary} /> Move Your Egg
+                  </h3>
+                </div>
+
+                <p className="text-stone-700 leading-relaxed text-base">
+                  Each month during ovulation, an ovary releases an egg into the fallopian tube. Because an egg cannot swim on its own, the lining of your tube uses two specialized cell types to move and feed it.
+                </p>
+
+                <div className="bg-[#F2ECE4] p-5 border border-stone-300 space-y-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-stone-900">
+                      Fallopian Tube Transport Simulator
+                    </span>
+                    <div className="grid grid-cols-2 bg-stone-300 gap-px border border-stone-300" role="group" aria-label="Toggle fallopian tube health state">
+                      <button
+                        type="button"
+                        aria-pressed={ciliaHealthyMode}
+                        onClick={() => setCiliaHealthyMode(true)}
+                        className={`py-2 px-3 text-[11px] font-bold uppercase tracking-wider transition-colors cursor-pointer ${
+                          ciliaHealthyMode ? 'bg-purple-900 text-white' : 'bg-white text-stone-700 hover:bg-stone-100'
+                        }`}
+                      >
+                        Healthy Cilia
+                      </button>
+                      <button
+                        type="button"
+                        aria-pressed={!ciliaHealthyMode}
+                        onClick={() => setCiliaHealthyMode(false)}
+                        className={`py-2 px-3 text-[11px] font-bold uppercase tracking-wider transition-colors cursor-pointer ${
+                          !ciliaHealthyMode ? 'bg-rose-800 text-white' : 'text-stone-700 hover:bg-stone-100'
+                        }`}
+                      >
+                        Scarred &amp; Blocked
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="bg-[#FFFDF9] p-4 border border-stone-300">
+                    <svg
+                      role="img"
+                      aria-label={
+                        ciliaHealthyMode
+                          ? 'Healthy fallopian tube lining showing waving ciliated cells sweeping the ovum smoothly.'
+                          : 'Damaged fallopian tube lining showing loss of cilia and collagen web obstructing the ovum.'
+                      }
+                      viewBox="0 0 360 155"
+                      className="w-full max-w-lg mx-auto h-auto block"
+                      shapeRendering="geometricPrecision"
+                    >
+                      <g stroke="#EFEAE2" strokeWidth="1.5">
+                        <line x1="0" y1="50" x2="360" y2="50" /><line x1="0" y1="100" x2="360" y2="100" />
+                      </g>
+
+                      <g transform={`translate(${ciliaHealthyMode ? 70 + ((time * 24) % 210) : 82 + 1.5 * Math.sin(time * 2.5)}, ${48 + 2.5 * Math.sin(time * 1.8)})`}>
+                        <circle cx="0" cy="0" r="18" fill="#FBF1E6" stroke="#38242E" strokeWidth="1.5" />
+                        <circle cx="0" cy="0" r="8.5" fill="#C85A68" stroke="#38242E" strokeWidth="1.5" />
+                      </g>
+
+                      {!ciliaHealthyMode && (
+                        <g>
+                          <path d="M 145 16 L 215 98 M 195 16 L 140 98 M 235 20 L 265 98 M 165 16 L 250 98" stroke="#38242E" strokeWidth="1.5" strokeLinecap="round" />
+                          <path d="M 135 50 L 275 60 M 145 75 L 270 35" stroke="#C85A68" strokeWidth="1.5" strokeLinecap="round" />
+                        </g>
+                      )}
+
+                      {IDX_8.map((idx) => {
+                        const isPeg = idx % 3 === 1;
+                        const xPos = 22 + idx * 40;
+                        const isDestroyed = !ciliaHealthyMode && idx >= 3 && 6 >= idx;
+                        return (
+                          <g key={idx}>
+                            <rect x={xPos} y={98} width="35" height="44" rx="1.5" fill={isDestroyed ? '#E5DCE0' : isPeg ? '#EBF2EE' : '#F9EBEE'} stroke="#38242E" strokeWidth="1.5" />
+                            <circle cx={xPos + 17.5} cy={125} r="5" fill={isDestroyed ? '#38242E' : '#C85A68'} stroke="#38242E" strokeWidth="1.5" />
+                            {!isPeg && !isDestroyed && (
+                              <g transform={`translate(${xPos + 17}, 98) rotate(${ciliaHealthyMode ? ciliaAngle : ciliaAngle * 0.2}) translate(-${xPos + 17}, -98)`}>
+                                <path d={`M ${xPos + 7} 98 Q ${xPos + 10} 80 ${xPos + 14} 74`} fill="none" stroke="#38242E" strokeWidth="1.5" strokeLinecap="round" />
+                                <path d={`M ${xPos + 17} 98 Q ${xPos + 20} 80 ${xPos + 24} 74`} fill="none" stroke="#38242E" strokeWidth="1.5" strokeLinecap="round" />
+                                <path d={`M ${xPos + 27} 98 Q ${xPos + 30} 80 ${xPos + 34} 74`} fill="none" stroke="#38242E" strokeWidth="1.5" strokeLinecap="round" />
+                              </g>
+                            )}
+                            {isPeg && !isDestroyed && (
+                              <ellipse cx={xPos + 17.5} cy={96} rx="9" ry="4" fill="#3D6356" stroke="#38242E" strokeWidth="1.5" />
+                            )}
+                          </g>
+                        );
+                      })}
+                    </svg>
+                  </div>
+
+                  <p className="text-xs text-stone-700 leading-relaxed">
+                    {ciliaHealthyMode
+                      ? 'Healthy Transport: Ciliated cells beat in synchronized waves while secretory peg cells nourish the egg on its way to the uterus.'
+                      : 'Scarred Tube: Loss of hair-like cilia and stiff collagen scar tissue physically trap the egg inside the tube.'}
+                  </p>
+                </div>
+
+                <FlipFlashcard
+                  resetKey="tubes-flashcard"
+                  frontTitle="THE TUBE'S 2 HELPER CELLS"
+                  backTitle="OVIDUCT CILIATED & PEG CELL PHYSIOLOGY"
+                  frontContent={
+                    <div className="space-y-2.5 text-sm sm:text-base">
+                      <p>
+                        <strong>1. Wave-Beating Hair Cells (Ciliated Cells):</strong> Covered in tiny hair-like bristles that wave in sync to sweep the egg toward the uterus.
+                      </p>
+                      <p>
+                        <strong>2. Nourishing Secretory Cells (Peg Cells):</strong> Sit between the hair cells and release nutrient-rich fluid to keep the egg healthy.
+                      </p>
+                    </div>
+                  }
+                  backContent={
+                    <ul className="list-disc pl-5 space-y-2.5">
+                      <li>
+                        <strong>Ciliated Columnar Epithelial Cells:</strong> Possess motile apical cilia that beat in synchronized metachronal waves toward the uterine cavity to propel the non-motile ovum and zygote.
+                      </li>
+                      <li>
+                        <strong>Non-Ciliated Secretory "Peg" Cells:</strong> Interspersed between ciliated cells, peg cells secrete tubular fluid containing pyruvate, glucose, and growth factors essential for ovum viability and sperm capacitation.
+                      </li>
+                    </ul>
+                  }
+                />
+              </div>
+            )}
+
+            {anatomyTab === 'immunity' && (
+              <div id="panel-immunity" role="tabpanel" aria-labelledby="tab-immunity" className="p-6 sm:p-8 space-y-6">
+                <FlipFlashcard
+                  resetKey="immunity-flashcard"
+                  frontTitle="BALANCED MUCOSAL IMMUNITY"
+                  backTitle="BASELINE MUCOSAL HOMEOSTASIS & MICROBIOME"
+                  frontContent={
+                    <p>
+                      In a healthy reproductive tract, friendly bacteria (like <em>Lactobacillus</em>) keep the vaginal environment mildly acidic so harmful germs struggle to grow. Meanwhile, resident white blood cells quietly clear everyday microbes <strong>without setting off a massive inflammatory reaction</strong> that would damage your delicate fallopian tube cilia.
+                    </p>
+                  }
+                  backContent={
+                    <ul className="list-disc pl-5 space-y-2.5">
+                      <li>
+                        <strong>Commensal Microbiome Defense:</strong> <em>Lactobacillus</em> species produce lactic acid and hydrogen peroxide, maintaining a protective acidic vaginal pH (~3.8–4.5).
+                      </li>
+                      <li>
+                        <strong>Regulated Mucosal Surveillance:</strong> Resident macrophages, dendritic cells, and T-cells clear transient microbes while maintaining immunological tolerance—preventing unregulated pro-inflammatory cytokine cascades that would damage fragile oviduct cilia.
+                      </li>
+                    </ul>
+                  }
+                />
+              </div>
+            )}
+          </div>
+        </article>
+      );
+    });
+
+    // ============================================================================
+    // ISOLATED MODULE: CHAPTER 03 4-STAGE BIPHASIC CYCLE (Stacked Single-Column)
+    // ============================================================================
+    const Chapter3Cycle = memo(({ onOpenGlossary }) => {
+      const [cycleStage, setCycleStage] = useState(1);
+      const [exitMode, setExitMode] = useState('extrusion');
+      const time = useAnimationClock(false);
+
+      return (
+        <article id="ch3" className="scroll-mt-28 space-y-6">
+          <div className="border-b-2 border-stone-900 pb-3">
+            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-purple-900 block mb-1">
+              PART 03 // INTRACELLULAR MECHANISM
+            </span>
+            <h2 className="font-serif-display text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900 leading-tight">
+              The 4-Stage Cellular Takeover: How Chlamydia Shape-Shifts Inside You
+            </h2>
+          </div>
+
+          <p className="text-base sm:text-[17px] text-stone-700 leading-relaxed">
+            Chlamydia is caused by the bacterium <strong><em>Chlamydia trachomatis</em></strong>. Unlike ordinary bacteria that can grow on their own, it is an <TermButton term="Obligate Intracellular Bacterium" label="Obligate Intracellular Bacterium" onOpenGlossary={onOpenGlossary} />—meaning <SciHighlight tone="purple">it cannot make its own energy (ATP) and must break into your living cells to survive</SciHighlight>. To do that, it switches between two forms:
+          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 bg-stone-900 gap-px border border-stone-900">
+            <div className="bg-purple-50/90 p-5 space-y-1">
+              <span className="text-[10px] font-bold uppercase tracking-widest bg-purple-950 text-white px-2 py-0.5 inline-block">
+                FORM 01 // OUTSIDE CELLS
+              </span>
+              <h3 className="font-serif-display text-xl font-bold text-purple-950 pt-1">
+                Elementary Body (“Travel Pod”)
+              </h3>
+              <p className="text-xs sm:text-sm text-stone-700 leading-relaxed pt-1">
+                Tough, spore-like, and infectious. Built to survive sex and unlock the surface of your cervical cells.
+              </p>
+            </div>
+
+            <div className="bg-rose-50/90 p-5 space-y-1">
+              <span className="text-[10px] font-bold uppercase tracking-widest bg-rose-900 text-white px-2 py-0.5 inline-block">
+                FORM 02 // INSIDE CELLS
+              </span>
+              <h3 className="font-serif-display text-xl font-bold text-rose-950 pt-1">
+                Reticulate Body (“Factory”)
+              </h3>
+              <p className="text-xs sm:text-sm text-stone-700 leading-relaxed pt-1">
+                Active and non-infectious. Once inside your cell, it uses your cell’s battery power to copy itself hundreds of times.
+              </p>
+            </div>
+          </div>
+
+          <div className="editorial-frame bg-white overflow-hidden">
+            <div
+              role="tablist"
+              aria-label="Chlamydia 4-stage intracellular cycle"
+              className="grid grid-cols-2 sm:grid-cols-4 bg-stone-300 gap-px border-b border-stone-300"
+            >
+              {[
+                { s: 1, num: '01', title: 'Attachment & Entry' },
+                { s: 2, num: '02', title: 'Safe-Room & Cloning' },
+                { s: 3, num: '03', title: 'Blocking Cell Death' },
+                { s: 4, num: '04', title: 'Dual Cellular Exit' }
+              ].map((item) => (
+                <button
+                  type="button"
+                  role="tab"
+                  key={item.s}
+                  id={`stage-tab-${item.s}`}
+                  aria-selected={cycleStage === item.s}
+                  aria-controls={`stage-panel-${item.s}`}
+                  onClick={() => setCycleStage(item.s)}
+                  className={`p-4 text-left transition-colors cursor-pointer ${
+                    cycleStage === item.s ? 'bg-[#23191E] text-white' : 'bg-[#F2ECE4] text-stone-800 hover:bg-purple-50/70'
+                  }`}
+                >
+                  <div className={`text-[10px] font-bold uppercase tracking-widest tabular-nums ${
+                    cycleStage === item.s ? 'text-amber-300' : 'text-purple-900'
+                  }`}>
+                    STAGE {item.num}
+                  </div>
+                  <div className="text-sm font-bold mt-1 leading-snug">
+                    {item.title}
+                  </div>
+                </button>
+              ))}
+            </div>
+
+            <div
+              id={`stage-panel-${cycleStage}`}
+              role="tabpanel"
+              aria-labelledby={`stage-tab-${cycleStage}`}
+              className="p-6 sm:p-8 space-y-6"
+            >
+              <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-stone-200 pb-3">
+                <div>
+                  <div className="text-[11px] font-bold text-purple-900 uppercase tracking-[0.16em]">
+                    STAGE 0{cycleStage} OF 04
+                  </div>
+                  <h3 className="font-serif-display text-2xl font-bold text-stone-900 mt-0.5">
+                    {cycleStage === 1 && 'Unlocking Your Cervical Cells'}
+                    {cycleStage === 2 && 'Building the “Safe-Room” Bubble & Cloning Factory'}
+                    {cycleStage === 3 && 'Suiting Back Up & Disabling Cell Self-Destruct'}
+                    {cycleStage === 4 && 'The Getaway: Quiet Bubble vs. Cell Burst'}
+                  </h3>
+                </div>
+              </div>
+
+              <div className="bg-[#F2ECE4] p-4 sm:p-5 border border-stone-300">
+                <StageFluidCanvas cycleStage={cycleStage} exitMode={exitMode} time={time} />
+
+                {cycleStage === 4 && (
+                  <div className="max-w-lg mx-auto mt-4 grid grid-cols-2 bg-stone-300 gap-px border border-stone-300" role="group" aria-label="Toggle cellular exit strategy">
+                    <button
+                      type="button"
+                      aria-pressed={exitMode === 'extrusion'}
+                      onClick={() => setExitMode('extrusion')}
+                      className={`py-2.5 px-3 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer ${
+                        exitMode === 'extrusion' ? 'bg-purple-900 text-white' : 'bg-white text-stone-800 hover:bg-stone-100'
+                      }`}
+                    >
+                      1. Quiet Bubble (Extrusion)
+                    </button>
+                    <button
+                      type="button"
+                      aria-pressed={exitMode === 'lysis'}
+                      onClick={() => setExitMode('lysis')}
+                      className={`py-2.5 px-3 text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer ${
+                        exitMode === 'lysis' ? 'bg-rose-800 text-white' : 'bg-white text-stone-800 hover:bg-stone-100'
+                      }`}
+                    >
+                      2. Cell Burst (Lysis)
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {cycleStage === 1 && (
+                <FlipFlashcard
+                  resetKey="stage-1"
+                  frontTitle="PLAIN-ENGLISH OVERVIEW · STAGE 01"
+                  backTitle="MOLECULAR MECHANISM · STAGE 01"
+                  frontContent={
+                    <p>
+                      During sex, Chlamydia arrives in its tough <TermButton term="Elementary Body (EB)" label="Travel Pod (EB)" onOpenGlossary={onOpenGlossary} /> form. Because it cannot make its own energy, it latches onto the surface of your single-layer cervical cell and tricks the cell membrane into folding inward, pulling the bacterium inside a tiny pocket.
+                    </p>
+                  }
+                  backContent={
+                    <ul className="list-disc pl-5 space-y-2.5">
+                      <li>
+                        <strong>Two-Step Host Receptor Binding:</strong> The infectious Elementary Body (EB) binds reversibly to <SciHighlight tone="purple">Heparan Sulfate Proteoglycans (HSPGs)</SciHighlight> on the apical surface of simple columnar epithelial cells, followed by irreversible binding to host <SciHighlight tone="purple">Protein Disulfide Isomerase (PDI)</SciHighlight> and growth factor receptors.
+                      </li>
+                      <li>
+                        <strong>Receptor-Mediated Endocytosis:</strong> Type III secretion system (T3SS) effectors remodel host actin filaments, inducing <SciHighlight tone="purple">receptor-mediated endocytosis</SciHighlight> into a membrane-bound vesicle.
+                      </li>
+                    </ul>
+                  }
+                />
+              )}
+
+              {cycleStage === 2 && (
+                <FlipFlashcard
+                  resetKey="stage-2"
+                  frontTitle="PLAIN-ENGLISH OVERVIEW · STAGE 02"
+                  backTitle="MOLECULAR MECHANISM · STAGE 02"
+                  frontContent={
+                    <p>
+                      Normally, your cell sends waste-disposal enzymes to destroy anything that sneaks inside. Chlamydia immediately remodels its pocket into a disguised <TermButton term="Inclusion Vacuole" label="Safe-Room Bubble (Inclusion)" onOpenGlossary={onOpenGlossary} /> so your cell’s disposal crew cannot touch it. Safe inside, it switches into its <TermButton term="Reticulate Body (RB)" label="Factory Form (RB)" onOpenGlossary={onOpenGlossary} /> and uses your cell’s energy to copy itself hundreds of times.
+                    </p>
+                  }
+                  backContent={
+                    <ul className="list-disc pl-5 space-y-2.5">
+                      <li>
+                        <strong>Evasion of Phagolysosomal Fusion:</strong> Differentiating into metabolically active Reticulate Bodies (RBs), the bacteria secrete <strong>inclusion membrane proteins (Inc proteins)</strong> that remodel the vacuole wall and <SciHighlight tone="purple">block fusion with host lysosomes</SciHighlight>.
+                      </li>
+                      <li>
+                        <strong>Metabolic Hijacking (ATP &amp; Lipids):</strong> The inclusion positions itself near the host Golgi apparatus and mitochondria to <SciHighlight tone="purple">import host ATP (via ATP/ADP translocases) and intercept sphingomyelin/cholesterol vesicles</SciHighlight> for rapid binary fission.
+                      </li>
+                    </ul>
+                  }
+                />
+              )}
+
+              {cycleStage === 3 && (
+                <FlipFlashcard
+                  resetKey="stage-3"
+                  frontTitle="PLAIN-ENGLISH OVERVIEW · STAGE 03"
+                  backTitle="MOLECULAR MECHANISM · STAGE 03"
+                  frontContent={
+                    <p>
+                      As hundreds of new bacteria fill the bubble, the multiplying Factories pack themselves back into tough, infectious <strong>Travel Pods (EBs)</strong> ready to infect the next cell. Normally, a hijacked human cell triggers its own “self-destruct switch” to stop an infection from spreading—but Chlamydia <strong>blocks the cell from dying</strong> until every clone is ready.
+                    </p>
+                  }
+                  backContent={
+                    <ul className="list-disc pl-5 space-y-2.5">
+                      <li>
+                        <strong>Asynchronous Condensation (RB → EB):</strong> Replicating Reticulate Bodies condense their chromatin and re-establish disulfide-crosslinked outer membrane complexes to transition back into infectious Elementary Bodies.
+                      </li>
+                      <li>
+                        <strong>Inhibition of Host Apoptosis:</strong> <em>C. trachomatis</em> secretes <SciHighlight tone="purple">Chlamydial Protease-like Activity Factor (CPAF)</SciHighlight> into the host cytosol to degrade pro-apoptotic BH3-only proteins (Bim, Puma, Bad), <SciHighlight tone="purple">blocking mitochondrial cytochrome c release and caspase activation</SciHighlight>.
+                      </li>
+                    </ul>
+                  }
+                />
+              )}
+
+              {cycleStage === 4 && (
+                <FlipFlashcard
+                  resetKey="stage-4"
+                  frontTitle="PLAIN-ENGLISH OVERVIEW · STAGE 04"
+                  backTitle="MOLECULAR MECHANISM · STAGE 04"
+                  frontContent={
+                    <div className="space-y-2.5 text-sm sm:text-base">
+                      <p>
+                        Once the clones are ready, the new Travel Pods escape using one of two equally common routes <TermButton term="Extrusion vs. Lysis" label="Extrusion vs. Lysis" onOpenGlossary={onOpenGlossary} />:
+                      </p>
+                      <p>
+                        <strong>1. Quiet Bubble Exit (Extrusion):</strong> A cluster pinches off wrapped inside a piece of your own cell’s membrane—leaving your cell unbroken so your immune system doesn't notice.
+                      </p>
+                      <p>
+                        <strong>2. Cell Burst (Lysis):</strong> The crowded cell pops open, spilling hundreds of bacteria to infect neighboring cells and triggering an immediate immune response.
+                      </p>
+                    </div>
+                  }
+                  backContent={
+                    <ul className="list-disc pl-5 space-y-2.5">
+                      <li>
+                        <strong>Outcome 1 — Extrusion (Non-Lytic Release):</strong> Dependent on host actin polymerization and myosin II motor pathways alongside bacterial factors, the membrane-wrapped inclusion pinches off. <SciHighlight tone="purple">The host cell remains intact</SciHighlight>, shielding EBs from immediate dendritic cell and macrophage recognition.
+                      </li>
+                      <li>
+                        <strong>Outcome 2 — Host Cell Lysis:</strong> Cysteine proteases sequentially degrade the inclusion membrane and host plasma membrane. <SciHighlight tone="rose">The host cell ruptures</SciHighlight>, releasing free EBs and intracellular DAMPs that recruit macrophages and neutrophils.
+                      </li>
+                    </ul>
+                  }
+                />
+              )}
+
+              <div className="pt-4 flex items-center justify-between border-t border-stone-200">
+                <button
+                  type="button"
+                  onClick={() => setCycleStage(s => Math.max(1, s - 1))}
+                  disabled={cycleStage === 1}
+                  className={`px-4 py-2.5 text-xs font-bold uppercase tracking-widest transition-colors ${
+                    cycleStage === 1
+                      ? 'text-stone-400 bg-stone-100 cursor-not-allowed'
+                      : 'bg-[#F2ECE4] hover:bg-stone-200 text-stone-900 border border-stone-400 cursor-pointer'
+                  }`}
+                >
+                  ← Previous Stage
+                </button>
+                <span className="text-xs text-stone-600 font-bold uppercase tracking-widest tabular-nums">
+                  STAGE 0{cycleStage} / 04
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setCycleStage(s => Math.min(4, s + 1))}
+                  disabled={cycleStage === 4}
+                  className={`px-4 py-2.5 text-xs font-bold uppercase tracking-widest transition-colors ${
+                    cycleStage === 4
+                      ? 'text-stone-400 bg-stone-100 cursor-not-allowed'
+                      : 'bg-[#23191E] hover:bg-purple-950 text-white cursor-pointer'
+                  }`}
+                >
+                  Next Stage →
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+      );
+    });
+
+    // ============================================================================
+    // ISOLATED MODULE: CHAPTER 04 CLINICAL PATHOLOGY (Stacked Single-Column)
+    // ============================================================================
+    const Chapter4Pathology = memo(({ onOpenGlossary }) => {
+      const [selectedSymptomId, setSelectedSymptomId] = useState('silent');
+      const [timelineIdx, setTimelineIdx] = useState(0);
+      const currentTimeline = TIMELINE_STEPS[timelineIdx] || TIMELINE_STEPS[0];
+
+      return (
+        <article id="ch4" className="scroll-mt-28 space-y-6">
+          <div className="border-b-2 border-stone-900 pb-3">
+            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-rose-800 block mb-1">
+              PART 04 // CLINICAL PATHOLOGY &amp; FERTILITY
+            </span>
+            <h2 className="font-serif-display text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900 leading-tight">
+              From Zero Symptoms to Permanent Fallopian Tube Scarring
+            </h2>
+          </div>
+
+          <p className="text-base sm:text-[17px] text-stone-700 leading-relaxed">
+            Whether you feel nothing at all or develop discharge, painful urination, Pelvic Inflammatory Disease (PID), or blocked tubes comes down to how those cellular stages interact with your immune system. Select each outcome below to see how it works.
+          </p>
+
+          <div className="editorial-frame bg-white overflow-hidden">
+            <div
+              role="tablist"
+              aria-label="Clinical outcomes of Chlamydia infection"
+              className="grid grid-cols-2 lg:grid-cols-4 bg-stone-300 gap-px border-b border-stone-300"
+            >
+              {[
+                { id: 'silent', badge: '70–80% OF CASES', title: '01. Silent Spread' },
+                { id: 'discharge', badge: 'ACUTE RESPONSE', title: '02. Local Swelling' },
+                { id: 'pid', badge: 'TUBE FIBROSIS', title: '03. Tube Scarring' },
+                { id: 'cancer', badge: 'LONG-TERM RISK', title: '04. DNA Damage' }
+              ].map((card) => {
+                const active = selectedSymptomId === card.id;
+                return (
+                  <button
+                    type="button"
+                    role="tab"
+                    key={card.id}
+                    id={`symptom-tab-${card.id}`}
+                    aria-selected={active}
+                    aria-controls={`symptom-panel-${card.id}`}
+                    onClick={() => setSelectedSymptomId(card.id)}
+                    className={`text-left p-4 transition-colors cursor-pointer ${
+                      active ? 'bg-rose-950 text-white' : 'bg-[#F2ECE4] text-stone-900 hover:bg-rose-50/70'
+                    }`}
+                  >
+                    <span className={`text-[10px] font-bold uppercase tracking-widest block mb-1 ${
+                      active ? 'text-amber-300' : 'text-rose-900'
+                    }`}>
+                      {card.badge}
+                    </span>
+                    <h3 className="font-serif-display text-sm sm:text-base font-bold leading-snug">
+                      {card.title}
+                    </h3>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div
+              id={`symptom-panel-${selectedSymptomId}`}
+              role="tabpanel"
+              aria-labelledby={`symptom-tab-${selectedSymptomId}`}
+              className="p-6 sm:p-8 space-y-6"
+            >
+              {selectedSymptomId === 'silent' && (
+                <>
+                  <div>
+                    <span className="text-[11px] font-bold text-purple-900 uppercase tracking-[0.16em]">
+                      OUTCOME 01 // SILENT INFLAMMATION (70–80% OF CASES)
+                    </span>
+                    <h3 className="font-serif-display text-2xl font-bold text-stone-900 mt-1">
+                      Why You Can Have Chlamydia for Months and Feel Totally Fine
+                    </h3>
+                  </div>
+
+                  <FlipFlashcard
+                    resetKey="clinical-silent"
+                    frontTitle="PLAIN-ENGLISH OVERVIEW · SILENT SPREAD"
+                    backTitle="CELLULAR & IMMUNE EVASION PATHWAY"
+                    frontContent={
+                      <p>
+                        Because Chlamydia hides inside an internal bubble, stops infected cells from dying early, and often pinches out inside quiet membrane packages (<strong>Extrusion</strong>) without bursting your cells open, your pain nerves never get tripped. That is why <strong>70% to 80% of women feel no pain or irritation</strong> while low-grade cellular stress quietly climbs toward the fallopian tubes.
+                      </p>
+                    }
+                    backContent={
+                      <div className="grid grid-cols-1 sm:grid-cols-2 bg-stone-300 gap-px border border-stone-300">
+                        <div className="bg-white p-4 space-y-1">
+                          <div className="text-xs font-bold text-purple-950 uppercase">1. Intracellular Shielding</div>
+                          <p className="text-xs text-stone-700 leading-relaxed">
+                            Reticulate bodies replicate inside the <SciHighlight tone="purple">modified inclusion vacuole</SciHighlight>, shielded from extracellular antibodies and phagolysosomes.
+                          </p>
+                        </div>
+                        <div className="bg-white p-4 space-y-1">
+                          <div className="text-xs font-bold text-purple-950 uppercase">2. Non-Lytic Extrusion</div>
+                          <p className="text-xs text-stone-700 leading-relaxed">
+                            Through <strong>extrusion</strong>, membrane-coated EBs exit <SciHighlight tone="purple">without rupturing the host epithelial cell</SciHighlight>, preserving surrounding tissue structure.
+                          </p>
+                        </div>
+                        <div className="bg-white p-4 space-y-1">
+                          <div className="text-xs font-bold text-purple-950 uppercase">3. Sub-Threshold Stress</div>
+                          <p className="text-xs text-stone-700 leading-relaxed">
+                            Infected epithelial cells release low-level stress signals without triggering an immediate surge of pain-inducing prostaglandins.
+                          </p>
+                        </div>
+                        <div className="bg-[#23191E] text-white p-4 space-y-1">
+                          <div className="text-xs font-bold text-amber-300 uppercase">4. Nociceptors Bypassed</div>
+                          <p className="text-xs text-stone-300 leading-relaxed">
+                            Local pain receptors (<strong>nociceptors</strong>) remain unstimulated, allowing asymptomatic canalicular spread upward into the fallopian tubes.
+                          </p>
+                        </div>
+                      </div>
+                    }
+                  />
+                </>
+              )}
+
+              {selectedSymptomId === 'discharge' && (
+                <>
+                  <div>
+                    <span className="text-[11px] font-bold text-amber-900 uppercase tracking-[0.16em]">
+                      OUTCOME 02 // ACUTE IMMUNE RESPONSE &amp; SWELLING
+                    </span>
+                    <h3 className="font-serif-display text-2xl font-bold text-stone-900 mt-1">
+                      Why Bursting Cells Cause Discharge, Painful Urination, or Spotting
+                    </h3>
+                  </div>
+
+                  <FlipFlashcard
+                    resetKey="clinical-discharge"
+                    frontTitle="PLAIN-ENGLISH OVERVIEW · LOCAL SYMPTOMS"
+                    backTitle="CELLULAR PATHWAY: LYSIS TO CERVICITIS & URETHRITIS"
+                    frontContent={
+                      <div className="space-y-2.5">
+                        <p>
+                          When infected cells burst open (<strong>Lysis</strong>) and spill internal <TermButton term="DAMPs & TLRs" label="Distress Signals (DAMPs)" onOpenGlossary={onOpenGlossary} />, your immune system rushes white blood cells to the cervix and urethra, causing local swelling and fluid buildup:
+                        </p>
+                        <ul className="list-disc pl-5 space-y-1 text-sm sm:text-base">
+                          <li><strong>Unusual Discharge:</strong> Mucus mixed with white blood cells fighting the infection.</li>
+                          <li><strong>Painful Urination (Dysuria):</strong> Swelling irritates nerve endings in the urethra when you pee.</li>
+                          <li><strong>Spotting Between Periods or After Sex:</strong> Swollen tiny blood vessels in the cervix become fragile and bleed easily.</li>
+                        </ul>
+                      </div>
+                    }
+                    backContent={
+                      <div className="grid grid-cols-1 sm:grid-cols-2 bg-stone-300 gap-px border border-stone-300">
+                        <div className="bg-white p-4 space-y-1">
+                          <div className="text-xs font-bold text-amber-950 uppercase">1. Host Cell Lysis &amp; DAMPs</div>
+                          <p className="text-xs text-stone-700 leading-relaxed">
+                            Lytic exit ruptures infected columnar epithelial cells, releasing bacterial antigens and intracellular <strong>Damage-Associated Molecular Patterns (DAMPs)</strong>.
+                          </p>
+                        </div>
+                        <div className="bg-white p-4 space-y-1">
+                          <div className="text-xs font-bold text-amber-950 uppercase">2. TLR2/4 &amp; Leukocyte Surge</div>
+                          <p className="text-xs text-stone-700 leading-relaxed">
+                            DAMPs bind <strong>Toll-Like Receptors (TLR2/TLR4)</strong>, releasing IL-8 to <SciHighlight tone="rose">recruit macrophages and neutrophils</SciHighlight> to the infected tissue.
+                          </p>
+                        </div>
+                        <div className="bg-white p-4 space-y-1">
+                          <div className="text-xs font-bold text-amber-950 uppercase">3. Vasodilation &amp; Edema</div>
+                          <p className="text-xs text-stone-700 leading-relaxed">
+                            Pro-inflammatory cytokines (<strong>TNF-α, IL-1</strong>) dilate sub-epithelial blood vessels and cause localized cellular and interstitial swelling.
+                          </p>
+                        </div>
+                        <div className="bg-[#23191E] text-white p-4 space-y-1">
+                          <div className="text-xs font-bold text-amber-300 uppercase">4. Clinical Presentation</div>
+                          <p className="text-xs text-stone-300 leading-relaxed">
+                            Neutrophil exudate forms <strong>mucopurulent discharge</strong>; urethral edema causes <strong>dysuria</strong>; fragile endocervical capillaries cause <strong>spotting</strong>.
+                          </p>
+                        </div>
+                      </div>
+                    }
+                  />
+                </>
+              )}
+
+              {selectedSymptomId === 'pid' && (
+                <>
+                  <div>
+                    <span className="text-[11px] font-bold text-rose-900 uppercase tracking-[0.16em]">
+                      OUTCOME 03 // MICROSCOPIC SCARRING (FIBROSIS &amp; PID)
+                    </span>
+                    <h3 className="font-serif-display text-2xl font-bold text-stone-900 mt-1">
+                      How an Ongoing Immune Battle Scars and Blocks the Fallopian Tubes
+                    </h3>
+                  </div>
+
+                  <FlipFlashcard
+                    resetKey="clinical-pid"
+                    frontTitle="PLAIN-ENGLISH OVERVIEW · FIBROTIC SCARRING"
+                    backTitle="MOLECULAR CASCADE: PERSISTENT INFLAMMATION TO FIBROSIS"
+                    frontContent={
+                      <div className="space-y-2.5">
+                        <p>
+                          Because some Chlamydia bacteria stay hidden inside unbroken cells, your immune system struggles to clear them on its own. As the bacteria climb into the fallopian tubes, your body keeps sending waves of white blood cells to fight them for months.
+                        </p>
+                        <p>
+                          That non-stop immune battle strips away the delicate hair cells (cilia) and triggers <TermButton term="TGF-β & Fibrosis" label="Over-Healing Scar Tissue (Fibrosis)" onOpenGlossary={onOpenGlossary} />. Flexible tube cells are permanently replaced by stiff collagen scar tissue—blocking sperm from reaching the egg (<strong>infertility</strong>) or trapping a fertilized egg inside the tube (an <strong>ectopic pregnancy</strong>).
+                        </p>
+                      </div>
+                    }
+                    backContent={
+                      <div className="grid grid-cols-1 sm:grid-cols-2 bg-stone-300 gap-px border border-stone-300">
+                        <div className="bg-white p-4 space-y-1">
+                          <div className="text-[11px] font-bold text-rose-950 uppercase">1. Persistent Immune Battle</div>
+                          <p className="text-xs text-stone-700 leading-relaxed">
+                            Intracellular Reticulate Bodies evade complete clearance in intact host cells, driving chronic macrophage and neutrophil infiltration in the oviduct.
+                          </p>
+                        </div>
+                        <div className="bg-white p-4 space-y-1">
+                          <div className="text-[11px] font-bold text-rose-950 uppercase">2. Ciliary Sloughing (TNF-α)</div>
+                          <p className="text-xs text-stone-700 leading-relaxed">
+                            Chronic release of <SciHighlight tone="rose">TNF-α, IL-1, and IL-6</SciHighlight> paralyzes and strips away delicate ciliated and secretory peg epithelial cells.
+                          </p>
+                        </div>
+                        <div className="bg-white p-4 space-y-1">
+                          <div className="text-[11px] font-bold text-rose-950 uppercase">3. TGF-β &amp; Rigid Fibrosis</div>
+                          <p className="text-xs text-stone-700 leading-relaxed">
+                            Profibrotic <strong>TGF-β</strong> hyper-activates stromal <strong>fibroblasts</strong> to deposit dense extracellular matrix (ECM) and collagen scar tissue.
+                          </p>
+                        </div>
+                        <div className="bg-[#23191E] text-white p-4 space-y-1">
+                          <div className="text-[11px] font-bold text-rose-400 uppercase">4. Tubal Occlusion &amp; Ectopic Risk</div>
+                          <p className="text-xs text-stone-300 leading-relaxed">
+                            Contracted scar tissue narrows or seals the tubal lumen, blocking fertilization (<strong>infertility</strong>) or trapping embryos (<strong>ectopic pregnancy</strong>).
+                          </p>
+                        </div>
+                      </div>
+                    }
+                  />
+                </>
+              )}
+
+              {selectedSymptomId === 'cancer' && (
+                <>
+                  <div>
+                    <span className="text-[11px] font-bold text-stone-700 uppercase tracking-[0.16em]">
+                      OUTCOME 04 // CHRONIC CELLULAR STRESS &amp; CERVICAL DYSPLASIA
+                    </span>
+                    <h3 className="font-serif-display text-2xl font-bold text-stone-900 mt-1">
+                      How Long-Term Inflammation and Blocked Cell Death Raise Cervical Risk
+                    </h3>
+                  </div>
+
+                  <FlipFlashcard
+                    resetKey="clinical-cancer"
+                    frontTitle="PLAIN-ENGLISH OVERVIEW · CERVICAL CELL DAMAGE"
+                    backTitle="MOLECULAR PATHWAY: ROS, APOPTOSIS BLOCK & HPV SYNERGY"
+                    frontContent={
+                      <p>
+                        Months of ongoing inflammation release chemical stress that can damage DNA inside your cervical cells. At the same time, because Chlamydia disables your cell’s natural “self-destruct switch” during Stage 3, <strong>cervical cells with damaged DNA stay alive and keep dividing</strong> instead of clearing themselves out—raising the risk of abnormal cell growth and cervical cancer, especially alongside HPV.
+                      </p>
+                    }
+                    backContent={
+                      <div className="grid grid-cols-1 md:grid-cols-3 bg-stone-300 gap-px border border-stone-300">
+                        <div className="bg-white p-4 space-y-1">
+                          <div className="text-xs font-bold text-stone-900 uppercase">
+                            1. Oxidative DNA Damage (ROS)
+                          </div>
+                          <p className="text-xs text-stone-700 leading-relaxed">
+                            Persistent macrophage and neutrophil infiltration generates <strong>Reactive Oxygen Species (ROS)</strong>, causing double-stranded DNA breaks and genomic instability in cervical epithelial cells.
+                          </p>
+                        </div>
+                        <div className="bg-white p-4 space-y-1">
+                          <div className="text-xs font-bold text-stone-900 uppercase">
+                            2. Survival of Mutated Cells
+                          </div>
+                          <p className="text-xs text-stone-700 leading-relaxed">
+                            <em>Chlamydia</em> <SciHighlight tone="purple">inhibits host apoptosis (via CPAF)</SciHighlight> and downregulates p53 tumor-suppressor pathways, allowing DNA-damaged cells to survive and proliferate.
+                          </p>
+                        </div>
+                        <div className="bg-[#23191E] text-white p-4 space-y-1">
+                          <div className="text-xs font-bold text-rose-400 uppercase">
+                            3. Dysplasia &amp; HPV Co-Infection
+                          </div>
+                          <p className="text-xs text-stone-300 leading-relaxed">
+                            Epithelial barrier disruption facilitates persistent high-risk <strong>Human Papillomavirus (HPV) co-infection</strong> and progression toward cervical intraepithelial neoplasia.
+                          </p>
+                        </div>
+                      </div>
+                    }
+                  />
+                </>
+              )}
+
+              <ChronicInflammationPlate
+                selectedSymptomId={selectedSymptomId}
+                onSelectStage={setSelectedSymptomId}
+              />
+            </div>
+          </div>
+
+          {/* INTERACTIVE DISEASE TIMELINE SCRUBBER */}
+          <div className="editorial-frame bg-white overflow-hidden">
+            <div className="px-6 py-4 bg-[#23191E] text-white border-b border-stone-800 flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-amber-300 block">
+                  PROGRESSION TIMELINE
+                </span>
+                <h3 className="font-serif-display text-lg sm:text-xl font-bold text-white">
+                  What You Feel vs. What Your Cells Experience (Day 1 to Month 6+)
+                </h3>
+              </div>
+            </div>
+
+            <div className="p-6 sm:p-8 space-y-5">
+              <div className="grid grid-cols-2 sm:grid-cols-4 bg-stone-300 gap-px border border-stone-300" role="tablist" aria-label="Disease progression timeline">
+                {TIMELINE_STEPS.map((step, idx) => {
+                  const isCurrent = timelineIdx === idx;
+                  return (
+                    <button
+                      type="button"
+                      role="tab"
+                      key={step.id}
+                      aria-selected={isCurrent}
+                      onClick={() => setTimelineIdx(idx)}
+                      className={`p-3.5 text-left transition-colors cursor-pointer ${
+                        isCurrent ? 'bg-[#23191E] text-white' : 'bg-[#FAF7F2] text-stone-800 hover:bg-[#F2ECE4]'
+                      }`}
+                    >
+                      <span className={`text-[10px] font-bold uppercase tracking-widest block ${
+                        isCurrent ? 'text-amber-300' : 'text-rose-900'
+                      }`}>
+                        {step.time}
+                      </span>
+                      <span className="text-xs font-bold line-clamp-1 mt-1">
+                        {step.stage}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-4 p-5 bg-[#FAF7F2] border border-stone-300">
+                <div className="md:col-span-5 p-4 bg-[#FFFBEB] border-l-4 border-l-amber-600 border border-amber-300">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-amber-900 block mb-1">
+                    WHAT YOU TYPICALLY FEEL ({currentTimeline.time})
+                  </span>
+                  <div className="font-serif-display text-base font-bold text-stone-900">
+                    {currentTimeline.feeling}
+                  </div>
+                </div>
+                <div className="md:col-span-7 p-4 bg-white border border-stone-200">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-purple-900 block mb-1">
+                    WHAT IS HAPPENING INSIDE YOUR CELLS
+                  </span>
+                  <p className="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                    {currentTimeline.cellular}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* CLINICAL PREVENTION BANNER */}
+          <div className="bg-[#23191E] text-white p-6 sm:p-8 editorial-frame grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            <div className="md:col-span-8 space-y-2">
+              <div className="text-[11px] text-amber-300 font-bold uppercase tracking-[0.16em]">
+                PREVENTION &amp; EARLY INTERVENTION // 100% CURABLE
+              </div>
+              <h3 className="font-serif-display text-2xl font-bold leading-snug">
+                A Simple Urine or Swab Test Stops the Scarring Before It Starts.
+              </h3>
+              <p className="text-sm text-stone-300 leading-relaxed">
+                Because <em>Chlamydia trachomatis</em> causes no symptoms in up to 80% of women, routine screening is the only reliable way for sexually active women aged 15–25 to catch an infection early—before flexible fallopian tube tissue is replaced by permanent scar tissue.
+              </p>
+            </div>
+            <div className="md:col-span-4 bg-rose-950/90 border border-rose-800 p-5 text-left md:text-center">
+              <div className="text-[10px] font-bold text-amber-300 uppercase tracking-widest">FOR WOMEN AGED 15–25</div>
+              <div className="font-serif-display text-xl font-bold text-white mt-1">Annual STI Screening</div>
+              <div className="text-xs text-rose-200 mt-1">Or whenever changing sexual partners</div>
+            </div>
+          </div>
+        </article>
+      );
+    });
+
+    // ============================================================================
+    // ISOLATED MODULE: CHAPTER 05 CLINICAL REVIEW QUIZ (Single-Column Stack)
+    // ============================================================================
+    const QuizSection = memo(() => {
+      const [quizAnswers, setQuizAnswers] = useState({});
+      const [quizSubmitted, setQuizSubmitted] = useState(false);
+
+      const handleSelect = useCallback((qId, optId) => {
+        setQuizAnswers(prev => ({ ...prev, [qId]: optId }));
+      }, []);
+
+      const score = useMemo(() => (
+        QUIZ_QUESTIONS.reduce((acc, q) => (quizAnswers[q.id] === q.correct ? acc + 1 : acc), 0)
+      ), [quizAnswers]);
+
+      const allAnswered = Object.keys(quizAnswers).length === QUIZ_QUESTIONS.length;
+
+      return (
+        <article id="ch5" className="scroll-mt-28 space-y-6 pb-8">
+          <div className="border-b-2 border-stone-900 pb-3">
+            <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-amber-800 block mb-1">
+              PART 05 // KNOWLEDGE CHECK
+            </span>
+            <h2 className="font-serif-display text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900 leading-tight">
+              Quick Review: Check Your Understanding
+            </h2>
+          </div>
+
+          <div className="editorial-frame bg-white overflow-hidden">
+            <div className="px-6 py-4 bg-[#23191E] text-white border-b border-stone-800 flex flex-wrap items-center justify-between gap-4">
+              <p className="text-stone-200 text-sm font-medium">
+                Select the best answer for each of the four questions below:
+              </p>
+              {quizSubmitted && (
+                <div
+                  role="status"
+                  aria-live="polite"
+                  className="bg-rose-800 text-amber-200 text-xs font-bold uppercase tracking-widest px-3.5 py-1 tabular-nums"
+                >
+                  SCORE: {score} / {QUIZ_QUESTIONS.length}
+                </div>
+              )}
+            </div>
+
+            <div className="divide-y divide-stone-300">
+              {QUIZ_QUESTIONS.map((q) => {
+                const userPick = quizAnswers[q.id];
+                const headingId = `quiz-question-${q.id}`;
+                return (
+                  <div
+                    key={q.id}
+                    role="group"
+                    aria-labelledby={headingId}
+                    className="bg-white p-6 sm:p-8 space-y-4"
+                  >
+                    <div className="flex items-start gap-3">
+                      <span className="text-xs font-bold uppercase tracking-widest bg-[#23191E] text-amber-300 px-2.5 py-1 tabular-nums shrink-0 mt-0.5">
+                        Q{q.num}
+                      </span>
+                      <h3
+                        id={headingId}
+                        className="font-serif-display text-base sm:text-lg font-bold text-stone-900 leading-snug"
+                      >
+                        {q.question}
+                      </h3>
+                    </div>
+
+                    <div className="space-y-2.5 pt-1" role="radiogroup" aria-labelledby={headingId}>
+                      {q.options.map((opt) => {
+                        const isSelected = userPick === opt.id;
+                        const isCorrect = opt.id === q.correct;
+
+                        let btnStyle = "bg-[#FAF7F2] border-stone-300 text-stone-800 hover:bg-[#F2ECE4]";
+                        if (!quizSubmitted && isSelected) {
+                          btnStyle = "bg-purple-950 border-purple-950 text-white font-medium";
+                        } else if (quizSubmitted) {
+                          if (isCorrect) {
+                            btnStyle = "bg-purple-900 border-purple-900 text-white font-medium";
+                          } else if (isSelected && !isCorrect) {
+                            btnStyle = "bg-rose-900 border-rose-900 text-white";
+                          }
+                        }
+
+                        return (
+                          <button
+                            type="button"
+                            key={opt.id}
+                            role="radio"
+                            aria-checked={isSelected}
+                            disabled={quizSubmitted}
+                            onClick={() => handleSelect(q.id, opt.id)}
+                            className={`w-full text-left p-4 border text-xs sm:text-sm transition-colors flex items-start gap-3 cursor-pointer ${btnStyle}`}
+                          >
+                            <span className={`uppercase font-bold text-xs px-2 py-0.5 border shrink-0 tabular-nums mt-0.5 ${
+                              (!quizSubmitted && isSelected) || (quizSubmitted && (isCorrect || isSelected))
+                                ? 'border-white/40 text-white'
+                                : 'bg-white border-stone-300 text-stone-700'
+                            }`}>
+                              {opt.id}
+                            </span>
+                            <span className="leading-relaxed">{opt.text}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {quizSubmitted && (
+                      <div
+                        role="region"
+                        aria-label={`Explanation for question ${q.num}`}
+                        className={`p-4 text-xs leading-relaxed border-l-4 ${
+                          userPick === q.correct
+                            ? 'bg-purple-50 text-purple-950 border-purple-300 border-l-purple-900'
+                            : 'bg-rose-50 text-rose-950 border-rose-300 border-l-rose-900'
+                        }`}
+                      >
+                        <strong className="uppercase tracking-widest block mb-1">
+                          {userPick === q.correct ? '✓ CORRECT' : '✗ EXPLANATION'}
+                        </strong>
+                        {q.explanation}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="px-6 py-4 bg-[#F2ECE4] border-t border-stone-300 flex flex-wrap items-center justify-between gap-4">
+              {!quizSubmitted ? (
+                <button
+                  type="button"
+                  onClick={() => setQuizSubmitted(true)}
+                  disabled={!allAnswered}
+                  className={`px-6 py-3 text-xs font-bold uppercase tracking-widest transition-colors ${
+                    allAnswered
+                      ? 'bg-[#23191E] text-white hover:bg-rose-900 cursor-pointer'
+                      : 'bg-stone-300 text-stone-600 cursor-not-allowed'
+                  }`}
+                >
+                  {allAnswered ? 'Check My Answers →' : 'Answer All 4 Questions to Check'}
+                </button>
+              ) : (
+                <div className="flex flex-wrap items-center justify-between w-full gap-4">
+                  <div className="font-serif-display text-base font-bold text-stone-900">
+                    {score === 4
+                      ? '4/4 — You have a complete grasp of Chlamydia pathophysiology.'
+                      : 'Review the explanations above to reinforce each stage of the cycle.'}
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => { setQuizAnswers({}); setQuizSubmitted(false); }}
+                    className="px-4 py-2.5 bg-white border border-stone-900 hover:bg-stone-100 text-xs font-bold uppercase tracking-widest flex items-center gap-2 cursor-pointer text-stone-900"
+                  >
+                    <IconFlip size={12} /> Reset Quiz
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </article>
+      );
+    });
+
+    // ============================================================================
+    // MAIN APPLICATION (Clean Single-Column Magazine Flow)
+    // ============================================================================
+    function App() {
+      const [activeChapter, setActiveChapter] = useState('ch1');
+      const [glossaryOpen, setGlossaryOpen] = useState(false);
+      const [selectedGlossaryTerm, setSelectedGlossaryTerm] = useState(null);
+      const [glossarySearch, setGlossarySearch] = useState('');
+      const [darkMode, setDarkMode] = useState(false);
+      const glossaryCardRefs = useRef({});
+
+      useEffect(() => {
+        const rootHtml = document.documentElement;
+        if (darkMode) {
+          rootHtml.classList.add('dark-theme');
+        } else {
+          rootHtml.classList.remove('dark-theme');
+        }
+      }, [darkMode]);
+
+      useEffect(() => {
+        const sectionIds = ['ch1', 'ch2', 'ch3', 'ch4', 'ch5'];
+        const elements = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setActiveChapter(entry.target.id);
+              }
+            });
+          },
+          { rootMargin: '-20% 0px -65% 0px', threshold: 0 }
+        );
+
+        elements.forEach(el => observer.observe(el));
+        return () => observer.disconnect();
+      }, []);
+
+      useEffect(() => {
+        if (!glossaryOpen) return;
+        const handleKeyDown = (e) => {
+          if (e.key === 'Escape') setGlossaryOpen(false);
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+      }, [glossaryOpen]);
+
+      useEffect(() => {
+        if (glossaryOpen && selectedGlossaryTerm && glossaryCardRefs.current[selectedGlossaryTerm]) {
+          glossaryCardRefs.current[selectedGlossaryTerm].scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+          });
+        }
+      }, [glossaryOpen, selectedGlossaryTerm]);
+
+      const scrollToSection = useCallback((id) => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          setActiveChapter(id);
+        }
+      }, []);
+
+      const handleOpenGlossary = useCallback((termName = null) => {
+        setSelectedGlossaryTerm(termName);
+        setGlossarySearch('');
+        setGlossaryOpen(true);
+      }, []);
+
+      const filteredGlossary = useMemo(() => {
+        const q = glossarySearch.trim().toLowerCase();
+        if (!q) return GLOSSARY_TERMS;
+        return GLOSSARY_TERMS.filter(item => item._searchIndex.includes(q));
+      }, [glossarySearch]);
+
+      return (
+        <div id="top" className="min-h-screen bg-[#FAF7F2] text-stone-900">
+          {/* STICKY TOP NAVIGATION BAR */}
+          <header className="sticky top-0 z-40 bg-[#FAF7F2]/95 backdrop-blur-sm border-b border-stone-900">
+            <ReadingProgressBar />
+
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+              <a
+                href="#top"
+                onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                className="font-serif-display text-2xl font-extrabold tracking-tight text-stone-900 shrink-0"
+              >
+                CHLAMYDIA<span className="text-rose-700 italic font-normal">.</span>
+              </a>
+
+              {/* Compact Desktop Chapter Jump Bar */}
+              <nav aria-label="Article chapters" className="hidden lg:flex items-center gap-1">
+                {CHAPTERS.map((ch) => {
+                  const isActive = activeChapter === ch.id;
+                  return (
+                    <button
+                      type="button"
+                      key={ch.id}
+                      onClick={() => scrollToSection(ch.id)}
+                      aria-current={isActive ? 'location' : undefined}
+                      className={`px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider transition-colors cursor-pointer ${
+                        isActive
+                          ? 'bg-[#23191E] text-white'
+                          : 'text-stone-700 hover:bg-[#F2ECE4]'
+                      }`}
+                    >
+                      <span className={`mr-1 tabular-nums ${isActive ? 'text-amber-300' : 'text-rose-800'}`}>{ch.num}.</span>
+                      {ch.title}
+                    </button>
+                  );
+                })}
+              </nav>
+
+              <div className="flex items-center gap-2 shrink-0">
+                <button
+                  type="button"
+                  onClick={() => setDarkMode(prev => !prev)}
+                  aria-pressed={darkMode}
+                  title="Toggle Dark Mode"
+                  className={`px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest border transition-colors cursor-pointer ${
+                    darkMode
+                      ? 'bg-amber-300 text-stone-950 border-amber-400'
+                      : 'bg-[#23191E] hover:bg-stone-800 text-white border-[#23191E]'
+                  }`}
+                >
+                  {darkMode ? 'Light' : 'Dark'}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => handleOpenGlossary(null)}
+                  aria-haspopup="dialog"
+                  aria-expanded={glossaryOpen}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest bg-[#EBF2EE] hover:bg-[#23191E] text-[#264238] hover:text-white border border-stone-900 transition-colors cursor-pointer"
+                >
+                  <IconBook size={12} />
+                  <span>Glossary ({GLOSSARY_TERMS.length})</span>
+                </button>
+              </div>
+            </div>
+          </header>
+
+          {/* BREATHABLE SINGLE-COLUMN MAGAZINE COVER HEADER */}
+          <section className="hero-crystal-stage border-b border-stone-900 py-12 sm:py-16">
+            <CrystalFacetHeroBackdrop />
+
+            <div className="editorial-content-shell max-w-3xl mx-auto px-4 sm:px-6 space-y-6">
+              <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-stone-900 text-[10px] font-bold uppercase tracking-[0.18em] text-stone-600">
+                <span>REPRODUCTIVE HEALTH // WOMEN AGED 15–25</span>
+                <span className="text-rose-800">NIKASH PARASURAMAN · HBS3001</span>
+              </div>
+
+              <h1 className="font-serif-display text-3xl sm:text-5xl font-bold text-stone-900 leading-[1.1]">
+                Quietly Under the Radar: <span className="italic font-normal text-rose-800">Why the Most Common STI in Your Twenties</span> Rarely Gives a Warning Sign.
+              </h1>
+
+              <p className="font-serif-display text-lg sm:text-xl text-stone-700 leading-relaxed">
+                In Singapore, Chlamydia is the <strong>#1 most common reportable sexually transmitted infection</strong>, and young women aged 15 to 25 carry the highest risk. Yet <strong>70% to 80% of women feel no initial symptoms</strong>. Here is how this bacterium operates inside your cells—and why a simple test protects your future fertility.
+              </p>
+
+              {/* Interactive Reading Legend Bar */}
+              <div className="p-4 bg-white/90 border border-stone-900 flex flex-wrap items-center justify-between gap-4 text-xs text-stone-700">
+                <div className="space-y-1">
+                  <div className="font-bold uppercase tracking-widest text-[10px] text-stone-900">
+                    HOW TO USE THIS INTERACTIVE GUIDE
+                  </div>
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs">
+                    <span>
+                      1. Click any <span className="glossary-term-chip pointer-events-none"><IconBook size={11} /><span>Term</span><span className="glossary-chip-badge">Define</span></span> button to open its glossary definition.
+                    </span>
+                    <span>
+                      2. Flip any card to <strong>Side B</strong> for cellular science.
+                    </span>
+                  </div>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('ch1')}
+                  className="text-[11px] font-bold uppercase tracking-widest bg-[#23191E] hover:bg-rose-800 text-white px-5 py-2.5 transition-colors cursor-pointer shrink-0"
+                >
+                  Start Reading ↓
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* SINGLE-COLUMN LINEAR READING STREAM (max-w-3xl — One Focus at a Time) */}
+          <main id="main-content" className="editorial-content-shell max-w-3xl mx-auto px-4 sm:px-6 py-14 space-y-20">
+
+            {/* CHAPTER 01: OVERVIEW & SINGAPORE EPIDEMIOLOGY */}
+            <article id="ch1" className="scroll-mt-28 space-y-6">
+              <div className="border-b-2 border-stone-900 pb-3">
+                <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-rose-800 block mb-1">
+                  PART 01 // EPIDEMIOLOGY &amp; SUSCEPTIBILITY
+                </span>
+                <h2 className="font-serif-display text-2xl sm:text-3xl lg:text-4xl font-bold text-stone-900 leading-tight">
+                  Why Ages 15–25 Face the Highest Biological Risk
+                </h2>
+              </div>
+
+              <div className="space-y-5 text-base sm:text-[17px] text-stone-800 leading-relaxed">
+                <p className="drop-cap">
+                  Most of us assume that if we caught a sexually transmitted infection, our bodies would let us know right away with pain or discomfort. In <strong>Singapore</strong>, data from the Communicable Diseases Agency (CDA) shows that Chlamydia is the <SciHighlight tone="rose">#1 most common legally notifiable STI at 91.1 cases per 100,000 people</SciHighlight>—ahead of both gonorrhoea and syphilis.
+                </p>
+
+                <p>
+                  Doctors call Chlamydia a <strong>“silent” infection</strong> because in <SciHighlight tone="amber">70% to 80% of women, it causes zero early symptoms</SciHighlight>. The bacteria can live inside the cells of your reproductive tract for months without a single outward clue, while quietly driving internal inflammation.
+                </p>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 bg-[#23191E] text-white editorial-frame my-6 divide-y sm:divide-y-0 sm:divide-x divide-stone-700">
+                  <div className="p-5">
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-rose-400">Singapore CDA Rate</div>
+                    <div className="font-serif-display text-3xl font-bold text-white tabular-nums mt-1">91.1 <span className="text-xs font-normal text-stone-300">/ 100k</span></div>
+                    <div className="text-xs text-stone-300 mt-1">#1 most common reportable STI</div>
+                  </div>
+                  <div className="p-5">
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-amber-300">Silent Cases</div>
+                    <div className="font-serif-display text-3xl font-bold text-white tabular-nums mt-1">70–80%</div>
+                    <div className="text-xs text-stone-300 mt-1">Of women feel zero early symptoms</div>
+                  </div>
+                  <div className="p-5">
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-rose-400">Peak Risk Window</div>
+                    <div className="font-serif-display text-3xl font-bold text-white tabular-nums mt-1">Ages 15–25</div>
+                    <div className="text-xs text-stone-300 mt-1">Due to natural cervical maturity</div>
+                  </div>
+                </div>
+
+                <p>
+                  Why are young women aged <strong>15 to 25</strong> affected the most? Beyond dating or social factors, the biggest reason is anatomy: during your teens and early twenties, your cervix is still finishing its growth—a normal stage called <TermButton term="Cervical Ectopy (Immaturity)" label="Cervical Immaturity (Ectopy)" onOpenGlossary={handleOpenGlossary} />. Because the outer surface of the cervix hasn’t finished growing its tough, multi-layered armor yet, delicate single-layer cells from the inner canal sit exposed on the outside, giving <em>Chlamydia trachomatis</em> an easy place to attach.
+                </p>
+              </div>
+
+              <FluidCellularAnimation />
+
+              <MagazinePullQuote
+                quote="Waiting for physical symptoms before getting tested misses nearly 3 out of 4 Chlamydia infections in young women."
+                attribution="SINGAPORE EPIDEMIOLOGICAL & CLINICAL REVIEW"
+              />
+
+              <AnatomicalBridgeMap />
+            </article>
+
+            <Chapter2Physiology onOpenGlossary={handleOpenGlossary} />
+            <Chapter3Cycle onOpenGlossary={handleOpenGlossary} />
+            <Chapter4Pathology onOpenGlossary={handleOpenGlossary} />
+            <QuizSection />
+
+          </main>
+
+          {/* CLEAN EDITORIAL COLOPHON FOOTER */}
+          <footer className="border-t-2 border-stone-900 bg-[#FAF7F2] mt-12" role="contentinfo">
+            <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 flex flex-wrap items-center justify-between gap-4 text-xs text-stone-600">
+              <div className="flex items-center gap-3 font-bold text-stone-900">
+                <span className="font-serif-display text-lg">CHLAMYDIA<span className="text-rose-700 italic font-normal">.</span></span>
+                <span className="text-stone-400">//</span>
+                <span className="uppercase tracking-[0.16em] text-[11px]">PATHOPHYSIOLOGY &amp; REPRODUCTIVE HEALTH</span>
+              </div>
+              <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-stone-500">
+                NIKASH PARASURAMAN · HBS3001 COMMUNICATING DISEASE
+              </div>
+            </div>
+          </footer>
+
+          {/* MOBILE & TABLET STICKY BOTTOM NAVIGATION BAR */}
+          <nav
+            aria-label="Mobile chapter navigation"
+            className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-[#FAF7F2]/95 backdrop-blur-sm border-t border-stone-900 grid grid-cols-5"
+          >
+            {CHAPTERS.map((ch) => {
+              const isActive = activeChapter === ch.id;
+              return (
+                <button
+                  type="button"
+                  key={ch.id}
+                  onClick={() => scrollToSection(ch.id)}
+                  className={`py-2.5 px-1 flex flex-col items-center justify-center transition-colors cursor-pointer ${
+                    isActive ? 'bg-[#23191E] text-white' : 'text-stone-700 hover:bg-[#F2ECE4]'
+                  }`}
+                >
+                  <span className={`text-[10px] font-bold tabular-nums ${isActive ? 'text-amber-300' : 'text-rose-800'}`}>
+                    {ch.num}
+                  </span>
+                  <span className="text-[10px] font-bold truncate max-w-full px-1">
+                    {ch.shortTitle}
+                  </span>
+                </button>
+              );
+            })}
+          </nav>
+
+          {/* ACCESSIBLE SLIDE-OUT GLOSSARY DIALOG */}
+          {glossaryOpen && (
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="glossary-modal-title"
+              className="fixed inset-0 z-50 flex justify-end bg-stone-900/60 backdrop-blur-sm"
+              onClick={() => setGlossaryOpen(false)}
+            >
+              <div
+                className="w-full max-w-md bg-[#FAF7F2] h-full border-l-2 border-stone-900 flex flex-col justify-between overflow-hidden"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="p-6 bg-[#23191E] text-white flex items-center justify-between">
+                  <div>
+                    <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-amber-300">
+                      DUAL-LEVEL REFERENCE
+                    </div>
+                    <h2 id="glossary-modal-title" className="font-serif-display text-xl font-bold text-white mt-0.5">
+                      Scientific Glossary
+                    </h2>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setGlossaryOpen(false)}
+                    aria-label="Close glossary dialog"
+                    className="p-2 bg-stone-800 hover:bg-stone-700 text-stone-200 hover:text-white cursor-pointer"
+                  >
+                    <IconClose size={16} />
+                  </button>
+                </div>
+
+                <div className="p-4 border-b border-stone-300 bg-[#F2ECE4]">
+                  <label htmlFor="glossary-search-input" className="sr-only">
+                    Search glossary terms
+                  </label>
+                  <div className="relative">
+                    <IconSearch size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone-500" />
+                    <input
+                      id="glossary-search-input"
+                      type="search"
+                      value={glossarySearch}
+                      onChange={(e) => setGlossarySearch(e.target.value)}
+                      placeholder="Search any term or meaning..."
+                      className="w-full pl-10 pr-14 py-2.5 bg-white border border-stone-900 text-sm text-stone-900 focus:outline-none"
+                    />
+                    {glossarySearch && (
+                      <button
+                        type="button"
+                        onClick={() => setGlossarySearch('')}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-bold uppercase tracking-widest text-stone-600 hover:text-stone-900 cursor-pointer"
+                      >
+                        Clear
+                      </button>
+                    )}
+                  </div>
+                </div>
+
+                <div className="flex-1 overflow-y-auto p-4 space-y-3">
+                  {filteredGlossary.map((item) => {
+                    const isHighlighted = selectedGlossaryTerm === item.term;
+                    return (
+                      <div
+                        key={item.term}
+                        ref={(el) => { glossaryCardRefs.current[item.term] = el; }}
+                        className={`p-5 border transition-colors ${
+                          isHighlighted
+                            ? 'bg-purple-50/90 border-2 border-stone-900 shadow-sm'
+                            : 'bg-white border-stone-300'
+                        }`}
+                      >
+                        <div className="flex items-center justify-between gap-2 mb-2">
+                          <div className="flex items-center gap-1.5">
+                            <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 border ${item.badgeColor}`}>
+                              {item.category}
+                            </span>
+                            {isHighlighted && (
+                              <span className="text-[9px] font-bold uppercase tracking-widest bg-[#23191E] text-amber-300 px-2 py-0.5">
+                                Selected Term
+                              </span>
+                            )}
+                          </div>
+                          <span className="text-xs text-stone-500 italic">
+                            /{item.phonetic}/
+                          </span>
+                        </div>
+                        <h3 className="font-serif-display text-lg font-bold text-stone-900 leading-snug">
+                          {item.term}
+                        </h3>
+                        <div className="text-xs font-bold text-rose-800 mt-0.5 mb-3">
+                          {item.subtitle}
+                        </div>
+                        <div className="p-3.5 bg-[#FFFBEB] border-l-4 border-l-amber-600 border border-amber-300 text-xs text-stone-800 leading-relaxed mb-3">
+                          <strong className="text-amber-950 uppercase tracking-widest block mb-1 text-[10px]">
+                            IN PLAIN ENGLISH
+                          </strong>
+                          {item.simplified}
+                        </div>
+                        <div className="text-xs text-stone-700 leading-relaxed">
+                          <strong className="text-purple-950 uppercase tracking-widest block mb-1 text-[10px]">
+                            CELLULAR MECHANISM
+                          </strong>
+                          {item.science}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+
+                <div className="p-4 border-t border-stone-300 bg-[#F2ECE4]">
+                  <button
+                    type="button"
+                    onClick={() => setGlossaryOpen(false)}
+                    className="w-full py-3 bg-[#23191E] text-white text-xs font-bold uppercase tracking-widest hover:bg-stone-800 cursor-pointer"
+                  >
+                    Back to Article
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
